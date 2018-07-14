@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8" />
+    <title>拉手玩</title>
+</head>
+<!-- 安装 npm install vue axios bootstrap -->
+<body>
+    <div id="app">
+        <!-- v-on === @符 -->
+
+        <div @click="fn">点我啊</div>
+
+        <input type="text" v-model="val" @keyup.enter="add">
+        <ul>
+            <li v-for="(a, index) in arr">
+                {{a}}
+                <button @click="laDelete(index)">X</button>
+            </li>
+        </ul>
+    </div>
+    <script src="./node_modules/vue/dist/vue.js"></script>
+    <script src="laswan.js"></script>
+</body>
+</html>

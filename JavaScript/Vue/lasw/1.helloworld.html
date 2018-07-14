@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8" />
+    <title>拉手玩</title>
+</head>
+<body>
+    <div id="app">
+        <!-- 小胡子语法 moustache 可以放 值, 赋值, 三元 -->
+        <!-- {{msg}} -->
+        
+    </div>
+
+    <div id="coupe">
+        <input type="text" v-model="msg"/>
+        <!-- v-text === {{msg}} 防止大括号出现在页面上 -->
+        <div v-text="msg"></div>
+        <!-- v-once 只绑定一次 -->
+        <div v-once>
+            {{msg}}
+            {{msg}}
+        </div>
+        <div v-html="pp"></div>
+    </div>
+
+    <script src="./node_modules/vue/dist/vue.js"></script>
+    <script src="index.js"></script>
+    <script>
+            let vm = new Vue({
+                el: '#coupe',
+                data: {
+                    // data中的数据, 会被 vm 所代理
+                    msg: 'AFunTeam you father',
+                    pp: '<h1>Hello</h1>'
+                }
+            }); // Object.defineProperty
+
+            // let obj = {};
+            /* Object.defineProperty(obj, 'name', {
+                configurable: false, // 是否可删除
+                writable: false,     // 是否可重新赋值
+                enumerable: false,   // 是否可枚举
+                value: 100
+            }); */
+    </script>
+</body>
+</html>

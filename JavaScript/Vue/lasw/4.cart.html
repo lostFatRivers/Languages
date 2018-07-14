@@ -1,0 +1,116 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="utf-8" />
+    <title>我的购物车</title>
+    <link rel="stylesheet" href="node_modules/bootstrap/dist/css/bootstrap.css" />
+</head>
+
+<body>
+    <div id="app">
+        <!-- bootstrap 栅格化布局 默认12列 -->
+        <!-- 常见的样式, 基本样式 + 增强样式 -->
+        <div class="container">
+            <div class="row">
+                <table class="table table-hover table-bordered">
+                    <div class="h2 text-warning">拉手购物车</div>
+                    <tr>
+                        <th>全选
+                            <input type="checkbox" v-model="checkAll">
+                        </th>
+                        <td>商品</td>
+                        <td>单价</td>
+                        <td>数量</td>
+                        <td>小计</td>
+                        <td>操作</td>
+                    </tr>
+                    <tr v-for="(product, index) in products">
+                        <td>
+                            <input type="checkbox" v-model="product.selected">
+                        </td>
+                        <td>
+                            <img :src="product.productCover">
+                            <div>
+                                <div>{{product.productInfo.name}}</div>
+                                <div>颜色: {{product.productInfo.color}}</div>
+                                <div>规格: {{product.productInfo.size}}</div>
+                            </div>
+                        </td>
+                        <td>
+                            {{product.productPrice}}
+                        </td>
+                        <td>
+                            <input type="number" min="0" v-model.number="product.productCount">
+                        </td>
+                        <td>
+                            <!-- 过滤器 原数据变, 只改变现实效果 -->
+                            {{product.productPrice * product.productCount | priceFixed}}
+                        </td>
+                        <td>
+                            <button class="btn btn-danger" @click="removeProduct(index)">删除</button>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>总价格: {{priceSum | priceFixed}}</td>
+                    </tr>
+                </table>
+            </div>
+        </div>
+    </div>
+    <script src="node_modules/vue/dist/vue.js"></script>
+    <!-- axios 基于 promise -->
+    <script src="node_modules/axios/dist/axios.js"></script>
+    <script>
+        let vm = new Vue({
+            el: '#app',
+            computed: { // 也在 vm上
+                checkAll: {
+                    get() {
+                        return this.products.every(item => item.selected);
+                    },
+                    set(val) {
+                        this.products.forEach(item => item.selected = val);
+                    }
+                },
+                priceSum() { // 只有get时, 可以省略get方法, 直接将其定义成方法;
+                    return this.products.filter(item => item.selected).reduce((prev, cur) => {
+                        return prev + cur.productPrice * cur.productCount;
+                    }, 0);
+                }
+            },
+            filters: {
+                priceFixed(inputPrice) {
+                    return inputPrice.toFixed(2);
+                }
+            },
+            created() { // 数据被初始化后被调用, 专门用ajax方法
+                this.getData();
+            },
+            methods: {
+                removeProduct(deIndex) {
+                    this.products = this.products.filter((val, index) => deIndex != index);
+                },
+                getData() {
+                    console.log(this.products);
+                    // promise 解决回调问题
+                    // resolve 转向成功态, reject 转向失败态, 两个均是函数
+                    // promise 的实例只有一个 then 方法, then 方法有两个参数
+                    // let pms = new Promise((resolve, reject) => console.log(1));
+                    axios.get('./products.json').then(res => {
+                        // success
+                        this.products = res.data;
+                    }, err => {
+                        // error
+                        console.log(err);
+                    });
+                }
+            },
+            data: {
+                products: []
+            }
+        });
+    </script>
+</body>
+
+</html>

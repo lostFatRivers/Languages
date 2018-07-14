@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8" />
+    <title>拉手玩</title>
+</head>
+<body>
+    <div id="vueNode">
+        {{laArr}}
+    </div>
+
+    <div id="vueLoop">
+        <!-- 要循环谁, 就在谁身上加 v-for -->
+        <ul>
+            <li v-for="fnum in laFruite">{{fnum}}</li>
+        </ul>
+    </div>
+
+
+    <script src="./node_modules/vue/dist/vue.js"></script>
+    <script>
+        let vm = new Vue({
+            el: '#vueNode',
+            data: {
+                laText: {school: ''},    // 1. 添加响应式数据
+                laArr: [1, 3, 6, 12, 31, 45, 76]
+            }
+        });
+        vm.$set(vm.laText, 'teach', 1); // 2. 给对象添加响应式数据
+        vm.a = {age: 3, address: 'joker.com'}; // 3. 替换原对象
+        // 操作数组, 变异方法: pop, push, shift, unshift, sort, reserve, splice
+        vm.laArr = vm.laArr.map(item => item * 3); // 覆盖原数组 filter, map
+        
+        let vm2 = new Vue({
+            el: '#vueLoop',
+            data: {
+                laFruite: [1, 3, 6, 12, 31, 45, 76]
+            }
+        });
+    </script>
+</body>
+</html>

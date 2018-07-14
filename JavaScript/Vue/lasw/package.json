@@ -1,0 +1,16 @@
+{
+  "name": "lashouwan",
+  "version": "0.3.1",
+  "description": "vue for lashouwan.",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "Joker",
+  "license": "MIT",
+  "dependencies": {
+    "axios": "^0.18.0",
+    "bootstrap": "^4.1.1",
+    "vue": "^2.5.16"
+  }
+}

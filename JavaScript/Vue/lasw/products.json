@@ -1,0 +1,24 @@
+[
+    {
+        "selected": true,
+        "productCover": "https://img10.360buyimg.com/cms/s80x80_jfs/t18814/30/2338412257/316614/d56a9ea6/5af189d8N8cbdb9d1.jpg",
+        "productInfo": {
+            "name": "锤子(smartisan)坚果Pro2特别版",
+            "color": "酒红色",
+            "size": "6+64G"
+        },
+        "productPrice": 1957.8,
+        "productCount": 2
+    },
+    {
+        "selected": false,
+        "productCover": "https://img10.360buyimg.com/cms/s80x80_jfs/t18814/30/2338412257/316614/d56a9ea6/5af189d8N8cbdb9d1.jpg",
+        "productInfo": {
+            "name": "锤子(smartisan)坚果Pro2特别版",
+            "color": "黑色",
+            "size": "1+4G"
+        },
+        "productPrice": 857.8,
+        "productCount": 1
+    }
+]
