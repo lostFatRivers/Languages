@@ -1,0 +1,31 @@
+<?xml version="1.0" encoding="utf-8"?>
+<e:Skin class="SelectRoleSkin" width="720" height="1280" xmlns:e="http://ns.egret.com/eui" xmlns:w="http://ns.egret.com/wing" >
+	<w:Config id="164fff1a86c" ></w:Config>
+	<e:Image source="selectRoleBackground_png" x="0" y="0" alpha="0.3"/>
+	<e:Image source="rightButtom_png" x="120" y="330" width="600" height="600" skewX="180" alpha="0.8"/>
+	<e:Image source="leftBottom_png" x="0" y="660" scaleX="1" scaleY="1" width="620" height="620" alpha="0.8"/>
+	<e:Button id="confirmButton" label="CONFIRM" x="210" y="1033.5" width="300"/>
+	<e:TextInput id="roleNameInput" width="265" height="71" x="227.5" y="934.5" anchorOffsetX="0" anchorOffsetY="0" textColor="0xc1c1c1"/>
+	<e:Button id="leftSlideButton" label="" x="100.75" y="918" scaleX="1.5" scaleY="1.7">
+		<e:skinName>
+			<e:Skin states="up,down,disabled">
+			<e:Image width="100%" height="100%" source="selectLeftButtonUp_png" source.down="selectLeftButtonDown_png"/>
+			<e:Label id="labelDisplay" horizontalCenter="0" verticalCenter="0"/>
+			</e:Skin>
+		</e:skinName>
+	</e:Button>
+	<e:Button id="rightSlideButton" label="" x="517.5" y="918" scaleX="1.5" scaleY="1.7">
+		<e:skinName>
+			<e:Skin states="up,down,disabled">
+			<e:Image width="100%" height="100%" source="selectRightButtonUp_png" source.down="selectRightButtonDown_png"/>
+			<e:Label id="labelDisplay" horizontalCenter="0" verticalCenter="0"/>
+			</e:Skin>
+		</e:skinName>
+	</e:Button>
+	<e:Group id="professionHeadGroup" width="424.6" height="521.1" x="168.93" y="164.9" scaleX="0.9" scaleY="0.9">
+		<e:Image id="headImage" source="assassinFm_png" x="0" y="9.099999999999994" scaleX="1" scaleY="1"/>
+		<e:Image source="headFrame_png" x="0" y="3.0999999999999943" scale9Grid="23,25,147,144" scaleX="2.2" scaleY="2.7"/>
+	</e:Group>
+	<e:Image source="lableBackground_png" x="85" y="676.4" scale9Grid="35,28,472,278" width="550" height="210"/>
+	<e:Label id="professionExplainLable" text="职业: 盗贼" x="112" y="702" anchorOffsetX="0" width="492.67" anchorOffsetY="0" height="152" textColor="0xc1c1c1" fontFamily="Microsoft YaHei" size="18"/>
+</e:Skin>
