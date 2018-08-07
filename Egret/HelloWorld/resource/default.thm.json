@@ -15,7 +15,7 @@
 		"eui.ItemRenderer": "resource/eui_skins/ItemRendererSkin.exml",
 		"GameOrigin": "resource/eui_skins/ui/GameOrigin.exml",
 		"SelectRole": "resource/eui_skins/ui/SelectRole.exml",
-		"SelectLeftButton": "resource/eui_skins/ui/SelectLeftButtonSkin.exml"
+		"GameLevels": "resource/eui_skins/ui/GameLevels.exml"
 	},
 	"autoGenerateExmlsList": true,
 	"exmls": [
@@ -32,6 +32,7 @@
 		"resource/eui_skins/ToggleSwitchSkin.exml",
 		"resource/eui_skins/VScrollBarSkin.exml",
 		"resource/eui_skins/VSliderSkin.exml",
+		"resource/eui_skins/ui/GameLevels.exml",
 		"resource/eui_skins/ui/GameOrigin.exml",
 		"resource/eui_skins/ui/SelectRole.exml"
 	],

@@ -23,9 +23,9 @@
 		</e:skinName>
 	</e:Button>
 	<e:Group id="professionHeadGroup" width="424.6" height="521.1" x="168.93" y="164.9" scaleX="0.9" scaleY="0.9">
-		<e:Image id="headImage" source="assassinFm_png" x="0" y="9.099999999999994" scaleX="1" scaleY="1"/>
+		<e:Image id="headImage" source="" x="0" y="9.1" scaleX="1" scaleY="1"/>
 		<e:Image source="headFrame_png" x="0" y="3.0999999999999943" scale9Grid="23,25,147,144" scaleX="2.2" scaleY="2.7"/>
 	</e:Group>
 	<e:Image source="lableBackground_png" x="85" y="676.4" scale9Grid="35,28,472,278" width="550" height="210"/>
-	<e:Label id="professionExplainLable" text="职业: 盗贼" x="112" y="702" anchorOffsetX="0" width="492.67" anchorOffsetY="0" height="152" textColor="0xc1c1c1" fontFamily="Microsoft YaHei" size="18"/>
+	<e:Label id="professionExplainLable" text="职业: 盗贼" x="112" y="702" anchorOffsetX="0" width="492.67" anchorOffsetY="0" height="152" fontFamily="Microsoft YaHei" size="20" textColor="0xefefef"/>
 </e:Skin>

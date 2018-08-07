@@ -6,6 +6,7 @@ class SceneManager {
 
 	private launchScene: GameOrigin;
 	private createRoleScene: SelectRole;
+	private gameMainScene: SelectRole;
 
 	private static sceneManager: SceneManager;
 

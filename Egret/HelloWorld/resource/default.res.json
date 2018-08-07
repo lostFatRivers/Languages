@@ -1,7 +1,7 @@
 {
 	"groups": [
 		{
-			"keys": "checkbox_select_disabled_png,checkbox_select_down_png,checkbox_select_up_png,checkbox_unselect_png,selected_png,border_png,header_png,radiobutton_select_disabled_png,radiobutton_select_down_png,radiobutton_select_up_png,radiobutton_unselect_png,roundthumb_png,thumb_png,track_png,tracklight_png,handle_png,off_png,on_png,button_down_png,button_up_png,thumb_pb_png,track_pb_png,track_sb_png,bg_jpg,egret_icon_png,description_json,background_png,button_lock_png,button_nomal_png,selectRoleBackground_png,assassinFm_png,assassinM_png,warMageFm_png,warMageM_png,inputBg_png,leftBottom_png,rightButtom_png,selectLeftButtonUp_png,selectRightButtonUp_png,selectLeftButtonDown_png,selectRightButtonDown_png,headFrame_png,lableBackground_png",
+			"keys": "checkbox_select_disabled_png,checkbox_select_down_png,checkbox_select_up_png,checkbox_unselect_png,selected_png,border_png,header_png,radiobutton_select_disabled_png,radiobutton_select_down_png,radiobutton_select_up_png,radiobutton_unselect_png,roundthumb_png,thumb_png,track_png,tracklight_png,handle_png,off_png,on_png,button_down_png,button_up_png,thumb_pb_png,track_pb_png,track_sb_png,bg_jpg,egret_icon_png,description_json,background_png,button_lock_png,button_nomal_png,selectRoleBackground_png,assassinFm_png,assassinM_png,warMageFm_png,warMageM_png,inputBg_png,leftBottom_png,rightButtom_png,selectLeftButtonUp_png,selectRightButtonUp_png,selectLeftButtonDown_png,selectRightButtonDown_png,headFrame_png,lableBackground_png,levelLeftLocked_png,levelLeftOpen_png,levelRightOpen_png,levelRightLocked_png,gameLevelbackground_png,headFrameNice_png,headFrameNormal_png,headWarMageFm_png,headWarMageM_png,headAssassinFm_png,headAssassinM_png,iconMoreUp_png,iconForge_png,iconShop_png,iconPackage_png,iconMore_png,iconForgeUp_png,iconShopUp_png,iconPackageUp_png",
 			"name": "preload"
 		}
 	],
@@ -221,6 +221,101 @@
 			"type": "image",
 			"name": "lableBackground_png",
 			"scale9grid": "23,25,498,298"
+		},
+		{
+			"name": "levelLeftLocked_png",
+			"type": "image",
+			"url": "assets/ui/levelLeftLocked.png"
+		},
+		{
+			"name": "levelLeftOpen_png",
+			"type": "image",
+			"url": "assets/ui/levelLeftOpen.png"
+		},
+		{
+			"name": "levelRightOpen_png",
+			"type": "image",
+			"url": "assets/ui/levelRightOpen.png"
+		},
+		{
+			"name": "levelRightLocked_png",
+			"type": "image",
+			"url": "assets/ui/levelRightLocked.png"
+		},
+		{
+			"name": "gameLevelbackground_png",
+			"type": "image",
+			"url": "assets/ui/gameLevelbackground.png"
+		},
+		{
+			"name": "headFrameNice_png",
+			"type": "image",
+			"url": "assets/ui/headFrameNice.png"
+		},
+		{
+			"name": "headFrameNormal_png",
+			"type": "image",
+			"url": "assets/ui/headFrameNormal.png"
+		},
+		{
+			"name": "headWarMageFm_png",
+			"type": "image",
+			"url": "assets/ui/headWarMageFm.png"
+		},
+		{
+			"name": "headWarMageM_png",
+			"type": "image",
+			"url": "assets/ui/headWarMageM.png"
+		},
+		{
+			"name": "headAssassinFm_png",
+			"type": "image",
+			"url": "assets/ui/headAssassinFm.png"
+		},
+		{
+			"name": "headAssassinM_png",
+			"type": "image",
+			"url": "assets/ui/headAssassinM.png"
+		},
+		{
+			"name": "iconMoreUp_png",
+			"type": "image",
+			"url": "assets/ui/iconMoreUp.png"
+		},
+		{
+			"name": "iconForge_png",
+			"type": "image",
+			"url": "assets/ui/iconForge.png"
+		},
+		{
+			"name": "iconShop_png",
+			"type": "image",
+			"url": "assets/ui/iconShop.png"
+		},
+		{
+			"name": "iconPackage_png",
+			"type": "image",
+			"url": "assets/ui/iconPackage.png"
+		},
+		{
+			"name": "iconMore_png",
+			"type": "image",
+			"url": "assets/ui/iconMore.png"
+		},
+		{
+			"name": "iconForgeUp_png",
+			"type": "image",
+			"url": "assets/ui/iconForgeUp.png"
+		},
+		{
+			"name": "iconShopUp_png",
+			"type": "image",
+			"url": "assets/ui/iconShopUp.png"
+		},
+		{
+			"name": "iconPackageUp_png",
+			"type": "image",
+			"url": "assets/ui/iconPackageUp.png"
 		}
 	]
 }

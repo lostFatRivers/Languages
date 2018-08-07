@@ -50,6 +50,8 @@ declare module skins{
 	class VSliderSkin extends eui.Skin{
 	}
 }
+declare class GameLevelsSkin extends eui.Skin{
+}
 declare class GameOriginSkin extends eui.Skin{
 }
 declare class SelectRoleSkin extends eui.Skin{
