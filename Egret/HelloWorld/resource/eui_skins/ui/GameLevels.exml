@@ -4,11 +4,12 @@
 	<e:Image source="gameLevelbackground_png" x="0" y="0" scaleX="1" scaleY="1" width="720" height="1280"/>
 	<e:Group id="scrollLevelsGroup" width="720" height="1280" x="0" y="0">
 	</e:Group>
-	<e:Group id="roleHeadGroup" width="188" height="188" x="25" y="1065">
+	<e:Group id="roleHeadGroup" width="188" height="188" x="25" y="1057">
 		<e:Image id="roleHeadImage" source="headAssassinFm_png" x="0" y="0" scaleX="1" scaleY="1"/>
 		<e:Image id="headFrameImage" source="headFrameNormal_png" x="0" y="0" scaleX="1" scaleY="1"/>
+		<e:Label id="roleNickName" text="Label" y="175" size="21" fontFamily="Microsoft YaHei" textAlign="center" anchorOffsetX="0" horizontalCenter="0"/>
 	</e:Group>
-	<e:Button id="btPackage" label="" x="230" y="1135" width="110" height="110">
+	<e:Button id="btPackage" label="" x="230" y="1127" width="110" height="110">
 		<e:skinName>
 			<e:Skin states="up,down,disabled">
 			<e:Image width="100%" height="100%" source="iconPackage_png" source.down="iconPackageUp_png"/>
@@ -16,7 +17,8 @@
 			</e:Skin>
 		</e:skinName>
 	</e:Button>
-	<e:Button id="btForge" label="" x="350" y="1135" width="110" height="110">
+	<e:Label text="背包" y="1232" size="21" fontFamily="Microsoft YaHei" textAlign="center" anchorOffsetX="0" x="263"/>
+	<e:Button id="btForge" label="" x="350" y="1127" width="110" height="110">
 		<e:skinName>
 			<e:Skin states="up,down,disabled">
 			<e:Image width="100%" height="100%" source="iconForge_png" source.down="iconForgeUp_png"/>
@@ -24,7 +26,8 @@
 			</e:Skin>
 		</e:skinName>
 	</e:Button>
-	<e:Button id="btShop" label="" x="470" y="1135" width="110" height="110">
+	<e:Label text="锻造" y="1232" size="21" fontFamily="Microsoft YaHei" textAlign="center" anchorOffsetX="0" x="386"/>
+	<e:Button id="btShop" label="" x="470" y="1127" width="110" height="110">
 		<e:skinName>
 			<e:Skin states="up,down,disabled">
 			<e:Image width="100%" height="100%" source="iconShop_png" source.down="iconShopUp_png"/>
@@ -32,7 +35,8 @@
 			</e:Skin>
 		</e:skinName>
 	</e:Button>
-	<e:Button id="btMore" label="" x="590" y="1135" width="110" height="110">
+	<e:Label text="商店" y="1232" size="21" fontFamily="Microsoft YaHei" textAlign="center" anchorOffsetX="0" x="504"/>
+	<e:Button id="btMore" label="" x="590" y="1127" width="110" height="110">
 		<e:skinName>
 			<e:Skin states="up,down,disabled">
 			<e:Image width="100%" height="100%" source="iconMore_png" source.down="iconMoreUp_png"/>
@@ -40,4 +44,5 @@
 			</e:Skin>
 		</e:skinName>
 	</e:Button>
+	<e:Label text="更多" y="1232" size="21" fontFamily="Microsoft YaHei" textAlign="center" anchorOffsetX="0" x="621"/>
 </e:Skin>

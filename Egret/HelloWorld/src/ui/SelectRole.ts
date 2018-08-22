@@ -33,7 +33,6 @@ class SelectRole extends eui.Component implements  eui.UIComponent {
 		this.professionExplainLable.text = prossesion.profExplain;
 		this.roleNameInput.text = prossesion.roleDefaultName;
 		this.checkSwitchButtonValid();
-		console.log("switch role profession, index:" + index);
 	}
 
 	private checkSwitchButtonValid(): void {
@@ -54,7 +53,10 @@ class SelectRole extends eui.Component implements  eui.UIComponent {
 	private buttonTouchEventBind(): void {
 		this.confirmButton.addEventListener(egret.TouchEvent.TOUCH_BEGIN, ev => {
 			console.log("selected role profession, index:" + this.currentIndex + " name:" + this.roleNameInput.text);
+			RoleManager.getInstance().createRole(this.roleNameInput.text, this.currentIndex);
+			SceneManager.getInstance().toGameLevelScene();
 		}, this);
+
 		this.leftSlideButton.addEventListener(egret.TouchEvent.TOUCH_BEGIN, ev => {
 			this.currentIndex -= 1;
 			if (this.currentIndex < 1) {
@@ -62,6 +64,7 @@ class SelectRole extends eui.Component implements  eui.UIComponent {
 			}
 			this.changeRoleIndex(this.currentIndex);
 		}, this);
+
 		this.rightSlideButton.addEventListener(egret.TouchEvent.TOUCH_BEGIN, ev => {
 			this.currentIndex += 1;
 			if (this.currentIndex > 4) {

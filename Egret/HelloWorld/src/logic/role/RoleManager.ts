@@ -1,5 +1,5 @@
 class RoleManager {
-	private static ROLE_KEY: string = "quest_role";
+	public static ROLE_KEY: string = "quest_role";
 
 	private static instance: RoleManager;
 

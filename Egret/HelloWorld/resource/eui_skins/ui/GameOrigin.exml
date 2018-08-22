@@ -2,9 +2,9 @@
 <e:Skin class="GameOriginSkin" width="720" height="1280" xmlns:e="http://ns.egret.com/eui" xmlns:w="http://ns.egret.com/wing" >
 	<w:Config id="164ff1b3c6b" ></w:Config>
 	<e:Image source="background_png" x="0" y="0" scaleX="1"/>
-	<e:Button id="btContinue" label="CONTINUE" x="214" y="854" width="292"/>
-	<e:Button id="btGameStart" label="NEW GAME" x="214" y="962" width="292"/>
-	<e:Button id="btExit" label="EXIT" x="214" y="1070" width="292"/>
+	<e:Button id="btContinue" label="CONTINUE" x="214" y="930" width="292"/>
+	<e:Button id="btGameStart" label="NEW GAME" x="214" y="930" width="292"/>
+	<e:Button id="btExit" label="EXIT" x="214" y="1050" width="292"/>
 	<e:Label text="version:" x="541.92" y="22.88" textColor="0xefcc8d" size="25"/>
 	<e:Label id="lbVersion" text="0.1.12" x="641.92" y="27.44" textColor="0xEFCC8D" size="20"/>
 </e:Skin>
