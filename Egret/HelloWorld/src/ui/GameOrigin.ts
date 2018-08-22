@@ -19,6 +19,12 @@ class GameOrigin extends eui.Component implements eui.UIComponent {
         super.childrenCreated();
         this.btGameStart.addEventListener(egret.TouchEvent.TOUCH_TAP, this.toGame, this);
         this.btExit.addEventListener(egret.TouchEvent.TOUCH_TAP, this.toExit, this);
+        let playerRole: PlayerRole = RoleManager.getInstance().getPlayerRole();
+        if (playerRole == null) {
+            this.btContinue.visible = false;
+        } else {
+            this.btGameStart.visible = false;
+        }
     }
 
     private toGame() {

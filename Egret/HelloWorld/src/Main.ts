@@ -95,6 +95,7 @@ class Main extends eui.UILayer {
      */
     protected createGameScene(): void {
         TempleteManager.getInstance().templeteInit();
+        RoleManager.getInstance().initRoleManager();
         SceneManager.getInstance().setRootStage(this);
         SceneManager.getInstance().toLaunchScene();
     }

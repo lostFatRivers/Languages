@@ -1,0 +1,4 @@
+class PlayerWeapen {
+	public constructor() {
+	}
+}
