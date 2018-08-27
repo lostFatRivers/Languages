@@ -32,6 +32,11 @@ class RoleManager {
 		this.updateRole();
 	}
 
+	public deleteRole() {
+		this.playerRole = null;
+		egret.localStorage.removeItem(RoleManager.ROLE_KEY);
+	}
+
 	public updateRole() {
 		let roleInfoStr = JSON.stringify(this.playerRole);
 		egret.localStorage.setItem(RoleManager.ROLE_KEY, roleInfoStr);

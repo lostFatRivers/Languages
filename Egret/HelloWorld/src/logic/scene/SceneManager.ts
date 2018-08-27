@@ -17,10 +17,7 @@ class SceneManager {
 	private static sceneManager: SceneManager;
 
 	public constructor() {
-		this.launchScene = new GameOrigin();
-		this.createRoleScene = new SelectRole();
-		this.gameMainScene = new GameLevels();
-	}
+	} 
 
 	public static getInstance(): SceneManager {
 		if (!this.sceneManager) {
@@ -34,14 +31,17 @@ class SceneManager {
 	}
 
 	public toLaunchScene() {
+		this.launchScene = new GameOrigin();
 		this.toTargetScene(this.launchScene);
 	}
 
 	public toCreateRoleScene() {
+		this.createRoleScene = new SelectRole();
 		this.toTargetScene(this.createRoleScene);
 	}
 
 	public toGameLevelScene() {
+		this.gameMainScene = new GameLevels();
 		this.toTargetScene(this.gameMainScene);
 	}
 
