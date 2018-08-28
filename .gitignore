@@ -10,3 +10,4 @@ classes/
 node_modules/
 .wing/
 bin-debug/
+libs/
