@@ -1,6 +1,11 @@
 class GameLevels extends eui.Component implements eui.UIComponent {
 	public static LEVEL_KEY: string = "player_level";
 
+	public static LEFT_X: number = 80;
+	public static RIGHT_X: number = 448;
+	public static BOTTOM_MARGIN: number = 430;
+	public static BOX_INTERVAL: number = 200;
+
 	// 可变大小滚动层, 放置关卡
 	private scrollLevelsGroup: eui.Group;
 
@@ -74,8 +79,13 @@ class GameLevels extends eui.Component implements eui.UIComponent {
 	private createLevels(): egret.DisplayObjectContainer {
 		let levelContent: egret.DisplayObjectContainer = new egret.DisplayObjectContainer();
 		let contentWidth = 720;
+<<<<<<< HEAD
 		let contentHeight = 1020;
 		for (let i = 1; i <= this.levelIndex + 1; i ++) {
+=======
+		let contentHeight = 1280;
+		for (let i = 1; i <= this.levelIndex + 5; i ++) {
+>>>>>>> afcdede752bfa3a42bf95a85c18e707b983eed38
 			let eachLevel: eui.Image = new eui.Image();
 			eachLevel.width = 192;
 			eachLevel.height = 192;
@@ -92,8 +102,16 @@ class GameLevels extends eui.Component implements eui.UIComponent {
 					eachLevel.source = "levelLeftOpen_png";
 				}
 			}
-			eachLevel.x = 100
-			eachLevel.y = 850
+			if (i % 2 == 0) {
+				eachLevel.x = GameLevels.RIGHT_X;
+			} else {
+				eachLevel.x = GameLevels.LEFT_X;
+			}
+			let yPos: number = contentHeight - (GameLevels.BOTTOM_MARGIN + GameLevels.BOX_INTERVAL * (i - 1));
+			if (yPos < 0) {
+				break;
+			}
+			eachLevel.y = yPos;
 			eachLevel.addEventListener(egret.TouchEvent.TOUCH_BEGIN, this.onLevelTouch, this);
 			levelContent.addChild(eachLevel);
 		}
