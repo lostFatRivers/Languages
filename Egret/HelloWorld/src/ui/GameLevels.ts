@@ -70,10 +70,11 @@ class GameLevels extends eui.Component implements eui.UIComponent {
 		this.scrollLevelsGroup.addChild(scrollView);
 	}
 
+	// 希望动态创建玩家的关卡列表, 当前只有显示20关, 上下滑动时, 动态添加和删除
 	private createLevels(): egret.DisplayObjectContainer {
 		let levelContent: egret.DisplayObjectContainer = new egret.DisplayObjectContainer();
 		let contentWidth = 720;
-		let contentHeight = 1280;
+		let contentHeight = 1020;
 		for (let i = 1; i <= this.levelIndex + 1; i ++) {
 			let eachLevel: eui.Image = new eui.Image();
 			eachLevel.width = 192;

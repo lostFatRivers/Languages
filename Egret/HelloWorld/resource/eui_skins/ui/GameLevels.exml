@@ -2,7 +2,7 @@
 <e:Skin class="GameLevelsSkin" width="720" height="1280" xmlns:e="http://ns.egret.com/eui" xmlns:w="http://ns.egret.com/wing" >
 	<w:Config id="1650e12a843" ></w:Config>
 	<e:Image source="gameLevelbackground_png" x="0" y="0" scaleX="1" scaleY="1" width="720" height="1280"/>
-	<e:Group id="scrollLevelsGroup" width="720" height="1280" x="0" y="0">
+	<e:Group id="scrollLevelsGroup" width="720" height="1020" x="0" y="0">
 	</e:Group>
 	<e:Group id="roleHeadGroup" width="188" height="188" x="25" y="1057">
 		<e:Image id="roleHeadImage" source="headAssassinFm_png" x="0" y="0" scaleX="1" scaleY="1"/>
