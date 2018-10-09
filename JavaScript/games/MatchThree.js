@@ -20,8 +20,6 @@ function randomGem() {
     return Math.floor(Math.random() * 100) % GEM_TYPE_NUMBER;
 }
 
-// console.log(box);
-
 /**
  * 找出相应 index 宝石的坐标;
  * 
@@ -249,7 +247,7 @@ function mergeRowAndColumeMatch(rowMatches, columeMatches) {
  * @param {[]} arr 数组;
  */
 function unique(arr){
-    return arr.filter((item, index, array) =>  array.indexOf(item) === index);
+    return arr.filter((item, index, array) => array.indexOf(item) === index);
 }
 
 console.log(box)

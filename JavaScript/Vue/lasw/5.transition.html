@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8" />
+    <title>Vue html title</title>
+    <link rel="stylesheet" href="node_modules/animate.css/animate.css">
+    <style>
+        #hello {
+            width: 100px; height: 100px; background: aqua;
+        }
+        #world {
+            width: 100px; height: 100px; background: red;
+        }
+        .v-enter {
+            opacity: 0;
+        }
+        .v-enter-active {
+            transition: 1s linear
+        }
+        .v-leave-active {
+            opacity: 0;
+            transition: 1s linear
+        }
+    </style>
+</head>
+<body>
+    <div id="app">
+        <!-- v-if v-show if操作的是dom, show操作的是样式 -->
+        <button @click="flag = !flag">切换</button>
+        <transition enter-active-class="animated bounceInUp" leave-active-class="animated bounceOutDown">
+            <div id="hello" v-show="flag">Hello</div>
+        </transition>
+        <transition>
+            <div id="world" v-show="flag">World</div>
+        </transition>
+    </div>
+    <script src="./node_modules/vue/dist/vue.js"></script>
+    <script>
+        let vm = new Vue({
+            el: '#app',
+            data: {
+                flag: true
+            }
+        });
+    </script>
+</body>
+</html>
