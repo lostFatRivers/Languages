@@ -79,13 +79,8 @@ class GameLevels extends eui.Component implements eui.UIComponent {
 	private createLevels(): egret.DisplayObjectContainer {
 		let levelContent: egret.DisplayObjectContainer = new egret.DisplayObjectContainer();
 		let contentWidth = 720;
-<<<<<<< HEAD
-		let contentHeight = 1020;
-		for (let i = 1; i <= this.levelIndex + 1; i ++) {
-=======
 		let contentHeight = 1280;
 		for (let i = 1; i <= this.levelIndex + 5; i ++) {
->>>>>>> afcdede752bfa3a42bf95a85c18e707b983eed38
 			let eachLevel: eui.Image = new eui.Image();
 			eachLevel.width = 192;
 			eachLevel.height = 192;
