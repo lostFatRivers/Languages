@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8" />
+    <title>Vue html title</title>
+</head>
+<body>
+    <div id="app">
+        <div @click="parent">parent
+            <div @click.once="child">child
+                <div @click="grandson">grandson</div>
+            </div>
+        </div>
+    </div>
+    <script src="./node_modules/vue/dist/vue.js"></script>
+    <script>
+        let vm = new Vue({
+            el: '#app',
+            methods: {
+                parent() {
+                    alert('parent');
+                },
+                child() {
+                    alert('child');
+                },
+                grandson(e) {
+                    alert('grandson');
+                    //e.cancelBubble = true; 阻止冒泡
+                    //e.stopPropagation(); 阻止事件传播
+                    //可以替换为 @事件.stop
+
+                    // @事件.capture 是事件捕获
+                    // @事件.prevent 改变默认行为
+                    // @事件.once 只绑定一次
+                    // @事件.self 绑定事件源, self:自己
+                }
+            },
+            data: {
+                
+            }
+        });
+    </script>
+</body>
+</html>
