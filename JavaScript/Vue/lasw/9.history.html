@@ -1,0 +1,96 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="utf-8" />
+    <title>Vue html title</title>
+    <link rel="stylesheet" href="node_modules/bootstrap/dist/css/bootstrap.css">
+    <link rel="stylesheet" href="node_modules/animate.css/animate.css">
+    <style>
+        .del {
+            color:rgb(145, 149, 153);
+        }
+        .v-enter-active {
+            transition: 1s linear
+        }
+        .v-leave-active {
+            opacity: 0;
+            transition: 1s linear
+        }
+    </style>
+</head>
+
+<body>
+    <div id="app">
+        <div id="top">
+            <nav class="navbar navbar-inverse navbar-static-top">
+                <div class="container-fluid">
+                    <div class="navbar-header">
+                        <a class="navbar-brand" href="#">
+                            TODO List
+                        </a>
+                    </div>
+                    <div class="navbar-header">
+                        <a class="navbar-brand" href="#">
+                            Home
+                        </a>
+                    </div>
+                </div>
+            </nav>
+        </div>
+        <div id=mid>
+            <div class="container">
+                <div class="row">
+                    <div class="col-md-8 col-md-offset-2">
+                        <div class="panel panel-default">
+                            <div class="panel-heading">
+                                还有 {{todoCount}} 件事情要完成
+                            </div>
+                            <div class="panel-body">
+                                <input type="text" class="form-control" v-model="todoTitle" @keydown.13="addTodo">
+                                <br>
+                                <transition enter-active-class="animated fadeIn" leave-active-class="animated fadeOut">
+                                    <ul class="list-group" v-show="curNavIndex!=3">
+                                        <li class="list-group-item" v-for="(eachTodo, index) in todos" @dblclick="modifyTodo(index)">
+                                            <span :class="{del:eachTodo.isSelected}" v-show="curModify!=index">
+                                                <input type="checkbox" @click="workDone(eachTodo)" v-model="eachTodo.isSelected">
+                                                {{eachTodo.title}}
+                                            </span>
+                                            <input type="text" v-model="eachTodo.title" v-show="curModify==index"
+                                                @keyup.enter="confirmModify" @blur="confirmModify" v-focus="curModify==index">
+                                            <button class="pull-right btn btn-danger btn-xs" @click="deleteTodo(eachTodo)">&times;</button>
+                                        </li>
+                                    </ul>
+                                </transition>
+
+                                <transition enter-active-class="animated fadeIn" leave-active-class="animated fadeOut">
+                                        <ul class="list-group" v-show="curNavIndex!=2">
+                                        <li class="list-group-item" v-for="(eachDone, index) in dones">
+                                            <span :class="{del:eachDone.isSelected}">
+                                                <input type="checkbox" @click="reTodo(eachDone)" v-model="eachDone.isSelected">
+                                                {{eachDone.title}}
+                                            </span>
+                                            <button class="pull-right btn btn-danger btn-xs" @click="deleteDone(eachDone)">&times;</button>
+                                        </li>
+                                    </ul>
+                                </transition>
+                            </div>
+                            <div class="panel-footer">
+                                <ul class="nav nav-pills">
+                                    <li role="presentation" @click="showAll" :class="{active:curNavIndex==1}"><a href="#">全部任务</a></li>
+                                    <li role="presentation" @click="showTodos" :class="{active:curNavIndex==2}"><a href="#">未完成</a></li>
+                                    <li role="presentation" @click="showDones" :class="{active:curNavIndex==3}"><a href="#">已完成</a></li>
+                                </ul>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <script src="./node_modules/axios/dist/axios.js"></script>
+    <script src="./node_modules/vue/dist/vue.js"></script>
+    <script src="./todo.js"></script>
+</body>
+
+</html>

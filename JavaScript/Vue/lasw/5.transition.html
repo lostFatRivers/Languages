@@ -27,7 +27,7 @@
     <div id="app">
         <!-- v-if v-show if操作的是dom, show操作的是样式 -->
         <button @click="flag = !flag">切换</button>
-        <transition enter-active-class="animated bounceInUp" leave-active-class="animated bounceOutDown">
+        <transition enter-active-class="animated zoomIn" leave-active-class="animated zoomOut">
             <div id="hello" v-show="flag">Hello</div>
         </transition>
         <transition>

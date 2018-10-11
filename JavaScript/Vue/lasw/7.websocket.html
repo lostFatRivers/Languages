@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8" />
+    <title>Websocket Test</title>
+</head>
+<body>
+    <div id="app">
+        {{message}}
+    </div>
+    <script src="./node_modules/vue/dist/vue.js"></script>
+    <script>
+        let vm = new Vue({
+            el: '#app',
+            data: {
+                message: "Not Connect"
+            },
+            created: function() {
+                if (window.wsClient == undefined) {
+                    window.wsClient = new WebSocket('ws://192.168.1.192:9003/websocket');
+                    wsClient.onopen = function(e) {
+                        vm.message = "New Connected";
+                    }
+                }
+            }
+        });
+    </script>
+</body>
+</html>
