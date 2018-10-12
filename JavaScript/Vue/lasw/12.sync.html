@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="utf-8" />
+    <title>Vue html title</title>
+    <link rel="stylesheet" href="node_modules/bootstrap/dist/css/bootstrap.css">
+</head>
+
+<body>
+    <div id="app">
+        <button>弹</button>
+        <jdialog :show="false" @close="closeDialog"></jdialog>
+        <template id="myDialog">
+            <div class="modal fade" id="myModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="false">
+                <div class="modal-dialog">
+                    <div class="modal-content">
+                        <div class="modal-header">
+                            <h4 class="modal-title" id="myModalLabel">新增</h4>
+                        </div>
+                        <div class="modal-body">
+
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </template>
+    </div>
+    <script src="./node_modules/vue/dist/vue.js"></script>
+    <script>
+        let jdialog = {
+            props:['show'],
+            template: '#myDialog'
+        };
+        let vm = new Vue({
+            el: '#app',
+            data: {
+
+            },
+            components: {
+                jdialog
+            }
+        });
+    </script>
+</body>
+
+</html>

@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8" />
+    <title>Vue html title</title>
+</head>
+<body>
+    <div id="app">
+        
+
+    </div>
+    <script src="./node_modules/vue/dist/vue.js"></script>
+    <script>
+        // 生命周期: beforeCreate, created
+        //          beforeMount, mounted
+        //          beforeUpdate, updated
+        //          beforeDestroy, destroyed
+        let vm = new Vue({ // 根实例, 初始化会调用很多方法 钩子函数,
+            el: '#app',
+            data: {
+                
+            },
+            created() {
+                this.$nextTick(() => {
+                    console.log(1000);
+                    
+                })
+            }
+
+        });
+    </script>
+</body>
+</html>

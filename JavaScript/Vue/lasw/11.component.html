@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8" />
+    <title>Vue html title</title>
+</head>
+<body>
+    <div id="app">
+        <dcsz-h>
+
+        </dcsz-h>
+
+        <fuck-all>
+
+        </fuck-all>
+    </div>
+    <!--
+        一个自定义标签, vue就会把他看成一个组件
+        1.全局组件 声明一次, 任何地方使用, 一般用来做插件
+        2.局部组件 必须告诉组件属于谁
+
+    -->
+    <script src="./node_modules/vue/dist/vue.js"></script>
+    <script>
+        Vue.component("dcsz-h", { // 全局组件
+            // 一个组件可以看成是一个对象
+            template: "<p>{{msg}}</p>",
+            data() { // 组件中的数据必须是函数类型, 返回一个实例, 作为组件的数据;
+                return {msg: 'Hello world'}
+            }
+        });
+
+        let fuckAll = {
+            template: '<p>{{msg}}</p>',
+            data() {
+                return {msg: 'Hello world'}
+            }
+        };
+        let vm = new Vue({
+            el: '#app',
+            data: {
+                
+            },
+            // 局部组件, 1.创建, 2.注册, 3.引用
+            components: {
+                fuckAll
+            }
+        });
+    </script>
+    <!--
+        胭脂粉好比那迷人的药，蜜糖嘴好比两把杀人的刀。
+        芙蓉面就是这个勾死的鬼儿，小金莲好比这个恶毒魈。
+        杨柳腰如同是绊马的索，风流眼逼我走上独木桥。
+        烟花院好比这个森罗殿，红绫被就是这个狱监牢。
+        一双玉腕千人枕，半点朱唇万客嚼。
+        管他张王和李赵，鸳鸯枕上唤娇娇。
+        悔不听家严的苦训教，任意儿胡为就乱赌嫖。
+        只说你花容月貌人俊俏，却原来貌美心毒虚情假意内藏刀。
+    -->
+</body>
+</html>
