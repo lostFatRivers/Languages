@@ -1,0 +1,15 @@
+{
+  "name": "btsd",
+  "version": "0.3.5",
+  "description": "bootstrap study",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "Joker",
+  "license": "MIT",
+  "dependencies": {
+    "bootstrap": "^3.3.7",
+    "npm": "^6.4.1"
+  }
+}

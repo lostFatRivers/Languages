@@ -1,0 +1,188 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+
+<head>
+    <meta charset="utf-8" />
+    <title>Bootstrap title</title>
+    <link rel="stylesheet" href="node_modules/bootstrap/dist/css/bootstrap.css">
+    <link rel="stylesheet" href="css/bt.css">
+</head>
+
+<body>
+    <div class="container">
+        <div class="row">
+            <div class="col-sm-12">
+                <nav class="navbar navbar-inverse navbar-fixed-top" role="navigation">
+                    <div class="container-fluid">
+                        <div class="navbar-header">
+                            <a href="#" class="navbar-brand">
+                                <span class="glyphicon glyphicon-fire"></span>
+                                首页
+                            </a>
+                        </div>
+                        <div>
+                            <ul class="nav navbar-nav">
+                                <li><a href="#">IOS</a></li>
+                                <li class="active"><a href="#">ANDROID</a></li>
+                                <li><a href="#">SVN</a></li>
+                                <li><a href="#">GIT</a></li>
+                            </ul>
+                        </div>
+                        <form class="navbar-form navbar-right" role="search">
+                            <div class="form-group">
+                                <input type="text" class="form-control" placeholder="Search">
+                            </div>
+                            <button type="submit" class="btn btn-default">
+                                <span class="glyphicon glyphicon-search"></span>
+                            </button>
+                        </form>
+                    </div>
+                </nav>
+            </div>
+        </div>
+        <div class="jumbotron">
+            <h1>Hello, world!</h1>
+            <p>...</p>
+            <p><a class="btn btn-primary btn-lg" href="#" role="button">Learn more</a></p>
+        </div>
+        <div class="row" style="padding-top: 80px;">
+            <div class="col-sm-8">
+                <h2>这是lable标签</h2>
+                <a class="label label-default" href="#">default</a>
+                <a class="label label-primary" href="#">Primary</a>
+                <a class="label label-success" href="#">Success</a>
+                <a class="label label-info" href="#">Info</a>
+                <a class="label label-warning" href="#">Warning</a>
+                <a class="label label-danger" href="#">Danger</a>
+                <span class="label label-danger">Span Danger</span>
+                <h2>这是图标</h2>
+                <span class="glyphicon glyphicon-user"></span>
+                <span class="glyphicon glyphicon-cog" style="color: rgb(0, 74, 169);"></span>
+                <span class="glyphicon glyphicon-camera" style="color: rgb(0, 58, 0);"></span>
+                <span class="glyphicon glyphicon-qrcode" style="color: rgb(0, 58, 0); font-size: 46px;"></span>
+                <span class="glyphicon glyphicon-tint" style="color: rgb(0, 58, 0); font-size: 46px;"></span>
+                <h2>这是图片</h2>
+                <img src="image/eva.jpg" style="border-radius: 30px;" class="img-rounded img-thumbnail">
+                <p class="text-center">文本在容器中间</p>
+                <p class="text-right">文本右对齐</p>
+                <p class="text-left">文本左对齐</p>
+                <p class="text-success text-center">text-success</p>
+                <p class="text-left">这里有一段<code>代码</code></p>
+                <pre>
+    这里全部都是代码
+    代码
+    代码
+public class SuperMan {
+
+}
+                </pre>
+                <h2>表格</h2>
+                <!-- 响应式表格 -->
+                <div class="table-responsive">
+                    <table class="table table-hover">
+                        <thead>
+                            <tr>
+                                <th>#</th>
+                                <th>FirstName</th>
+                                <th>LastName</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr>
+                                <td>1</td>
+                                <td>Anna</td>
+                                <td class="success">DJ</td>
+                            </tr>
+                            <tr>
+                                <td>1</td>
+                                <td class="danger">Debbie</td>
+                                <td>DJ</td>
+                            </tr>
+                            <tr>
+                                <td class="active">1</td>
+                                <td>John</td>
+                                <td>DJ</td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+                <div>
+                    <h2>这是个表单</h2>
+                    <form class="form-horizontal" role="form">
+                        <div class="form-group">
+                            <label class="col-sm-6" for="name">名称</label>
+                            <div class="col-sm-6">
+                                <input type="text" class="form-control" id="name" placeholder="请输入名称, 长度不小于4">
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            <label for="inputfile">选择文件</label>
+                            <input type="file" id="inputfile">
+                        </div>
+                        <div class="checkbox">
+                            <label>
+                                <input type="checkbox" id="cbox1"> 选择1
+                            </label>
+                            <label>
+                                <input type="checkbox" id="cbox2"> 选择2
+                            </label>
+                        </div>
+                        <div class="form-group">
+                            <label for="name">文本框</label>
+                            <textarea class="form-control" id="testA" rows="5"></textarea>
+                            <span class="help-block">合肥大范德萨范德萨范德萨发</span>
+                        </div>
+                        <div class="form-group">
+                            <label class="col-sm-3 text-right" for="name">请输入账号:</label>
+                            <div class="col-sm-9">
+                                <input type="text" class="form-control" id="name2" placeholder="请输入名称, 长度不小于4">
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            <label class="col-sm-3 text-right" for="name">请输入密码:</label>
+                            <div class="col-sm-9">
+                                <input disabled type="text" class="form-control" id="name3" placeholder="请输入名称, 长度不小于4">
+                            </div>
+                        </div>
+                        <div class="form-group has-success">
+                            <label class="col-sm-3 control-lable text-right" for="imputSuccess">年龄:</label>
+                            <div class="col-sm-9">
+                                <input type="text" class="form-control" id="name4">
+                            </div>
+                        </div>
+                        <div class="form-group has-warning">
+                            <label class="col-sm-3 text-right" for="name">住址:</label>
+                            <div class="col-sm-9">
+                                <input type="text" class="form-control" id="name5">
+                            </div>
+                        </div>
+                        <div class="form-group has-error">
+                            <label class="col-sm-3 text-right" for="name">联系方式:</label>
+                            <div class="col-sm-9">
+                                <input type="text" class="form-control" id="name6">
+                            </div>
+                        </div>
+                        <button type="submit" class="btn btn-submit">提交</button>
+                    </form>
+                </div>
+            </div>
+            <div class="col-sm-4">
+                <p>Lorem ipsum dolor sit amet, consectetuer adipiscing elit. Nam cursus. Morbi ut mi. Nullam enim leo,
+                    egestas id, condimentum at, laoreet mattis, massa. Sed eleifend nonummy diam. Praesent mauris ante,
+                    elementum et, bibendum at, posuere sit amet, nibh. Duis tincidunt lectus quis dui viverra
+                    vestibulum. Suspendisse vulputate aliquam dui. Nulla elementum dui ut augue. Aliquam vehicula mi at
+                    mauris. Maecenas placerat, nisl at consequat rhoncus, sem nunc gravida justo, quis eleifend arcu
+                    velit quis lacus. Morbi magna magna, tincidunt a, mattis non, imperdiet vitae, tellus. Sed odio
+                    est, auctor ac, sollicitudin in, consequat vitae, orci. Fusce id felis. Vivamus sollicitudin metus
+                    eget eros.</p>
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-sm-12">
+                <div style="height:500px"></div>
+            </div>
+        </div>
+    </div>
+</body>
+
+</html>
