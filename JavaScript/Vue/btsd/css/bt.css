@@ -5,3 +5,20 @@ body {
     color: #333333;
     background-color: #ffffff;
 }
+
+.jumbotron {
+    margin-bottom: 0;
+}
+
+#bighead {
+    background-image: url(../image/bg.jpg);
+    background-position: 40%30%; 
+    background-size: cover;
+    background-repeat: no-repeat; 
+    color: #ffffff;
+    height: 450px;
+}
+
+.lable {
+    display: inline-block;
+}
