@@ -19,6 +19,26 @@ body {
     height: 450px;
 }
 
-.lable {
-    display: inline-block;
+.art-general {
+    margin-top: 10px;
+    margin-bottom: 30px;
+    padding: 20px 30px;
+    box-shadow: 6px 4px 13px #888888;
+    transition: transform 0.06s ease;
+}
+
+.art-general:hover {
+    transform: scale(1.01, 1.01);
+    box-shadow: 8px 6px 23px #888888;
+    cursor: pointer;
+}
+
+.art-general-show {
+    height: 250px; 
+    background-image: url(../image/eva.jpg);
+    background-position: 40%40%; 
+    background-size: cover;
+    background-repeat: no-repeat; 
+    border-radius: 5px;
+    margin-bottom: 15px;
 }
