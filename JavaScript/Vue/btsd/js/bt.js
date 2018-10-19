@@ -1,3 +1,6 @@
-var aClick = val => {
-    alert(val);
-}
+var vm = new Vue({
+    el: '#app',
+    data: {
+        
+    }
+});
