@@ -3,7 +3,13 @@ body {
     font-size: 16px;
     line-height: 1.428571429;
     color: #333333;
-    background-color: #ffffff;
+    background-color: #e9e9e9;
+}
+
+.big-bg {
+    background: url(../image/bg.jpg) no-repeat 40% 30%;
+    background-color: #0d1817;
+    height: 450px;
 }
 
 .jumbotron {
@@ -11,34 +17,79 @@ body {
 }
 
 #bighead {
-    background-image: url(../image/bg.jpg);
-    background-position: 40%30%; 
     background-size: cover;
-    background-repeat: no-repeat; 
+    background: url(../image/bg.jpg) no-repeat 40% 30%;
     color: #ffffff;
     height: 450px;
+    display: none;
+}
+
+#index-page {
+    display: none;
+}
+
+#all-article {
+    margin-top: 60px;
 }
 
 .art-general {
     margin-top: 25px;
     margin-bottom: 30px;
     padding: 20px 30px;
+    background-color: white;
     box-shadow: 6px 4px 13px #888888;
-    transition: transform 0.06s ease;
+    transition: transform 0.07s ease;
 }
 
 .art-general:hover {
-    transform: scale(1.01, 1.01);
+    transform: translateZ(0) scale(1.004, 1.004);
     box-shadow: 8px 6px 23px #888888;
-    cursor: pointer;
 }
 
 .art-general-show {
-    height: 250px; 
-    background-image: url(../image/eva.jpg);
-    background-position: 40%40%; 
+    height: 200px;
     background-size: cover;
-    background-repeat: no-repeat; 
+    background: url(../image/eva.jpg) no-repeat 40% 40%;
     border-radius: 5px;
     margin-bottom: 15px;
+}
+
+.label-area {
+    line-height: 28px;
+    min-height: 350px;
+}
+
+.glyphicon-area {
+    margin-top: 10px;
+    color: #989898;
+}
+
+.tab-separate {
+    margin-top: 80px;
+}
+
+hr.style-two {
+    margin-bottom: 20px;
+    border: 0;
+    height: 0;
+    border-top: 1px solid rgba(0, 0, 0, 0.1);
+    border-bottom: 1px solid rgba(255, 255, 255, 0.3);
+}
+
+.article-wrap {
+    background-color: white;
+}
+
+.section-year-tag {
+    padding-top: 15px;
+    height: 100px;
+    background-color: white;
+    font-family: "Lucida Grande", Verdana, "Helvetica Neue", Arial, "Microsoft YaHei", "PingFang SC", "Hiragino Sans GB", "WenQuanYi Micro Hei", sans-serif;
+    font-size: 1.8em;
+    font-weight: bold;
+}
+
+.article-date {
+    margin-left: 30px;
+    height: 30px;
 }
