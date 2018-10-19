@@ -80,6 +80,14 @@ hr.style-two {
     background-color: white;
 }
 
+.single-article {
+    cursor: pointer;
+}
+
+.section {
+    padding-bottom: 40px;
+}
+
 .section-year-tag {
     padding-top: 15px;
     height: 100px;
