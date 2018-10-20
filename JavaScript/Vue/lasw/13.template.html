@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="utf-8" />
+    <title>模板</title>
+</head>
+
+<body>
+    <div id="app">
+        <jo-modal>
+            <div>是否删除?</div>
+            <div slot="title">标题</div>
+            <div slot="content">内容</div>
+        </jo-modal>
+        <jo-modal>
+        </jo-modal>
+        <jo-loading></jo-loading>
+    </div>
+    <template id="modal">
+        <div>
+            <slot name="default">这是一个默认标题</slot>
+            <slot name="title">默认title</slot>
+            <slot name="content">默认content</slot>
+        </div>
+    </template>
+    <script src="./node_modules/vue/dist/vue.js"></script>
+    <script>
+        let joModal = {
+            template: "#modal"
+        }
+        let loading = {
+            template: '<div>疯狂加载中...</div>'
+        }
+        let vm = new Vue({
+            el: '#app',
+            components: {
+                'jo-modal': joModal,
+                'jo-loading': loading
+            },
+            data: {
+
+            }
+        });
+    </script>
+</body>
+
+</html>
