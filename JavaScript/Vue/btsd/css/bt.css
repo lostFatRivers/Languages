@@ -17,15 +17,15 @@ body {
 }
 
 #bighead {
+    padding-top: 150px;
     background-size: cover;
     background: url(../image/bg.jpg) no-repeat 40% 30%;
     color: #ffffff;
     height: 450px;
-    display: none;
 }
 
 #index-page {
-    display: none;
+    
 }
 
 #all-article {
@@ -100,4 +100,8 @@ hr.style-two {
 .article-date {
     margin-left: 30px;
     height: 30px;
+}
+
+.v-enter-active {
+    transition: 1s ease
 }
