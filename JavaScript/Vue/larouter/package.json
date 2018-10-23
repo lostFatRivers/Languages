@@ -1,0 +1,19 @@
+{
+  "name": "larouter",
+  "version": "1.0.9",
+  "description": "router study",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "Joker",
+  "license": "MIT",
+  "dependencies": {
+    "animate.css": "^3.7.0",
+    "axios": "^0.18.0",
+    "bootstrap": "^4.1.3",
+    "jquery": "^3.3.1",
+    "vue": "^2.5.17",
+    "vue-router": "^3.0.1"
+  }
+}

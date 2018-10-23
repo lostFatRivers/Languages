@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="utf-8" />
+    <title>Vue html title</title>
+</head>
+
+<body>
+    <div id="app">
+
+        <router-link to="/home" tag="button">首页</router-link>
+        <router-link to="/list" tag="button">列表</router-link>
+
+        <!-- router-view是一个全局组件, 可以直接使用 -->
+        <router-view></router-view>
+
+    </div>
+    <script src="./node_modules/vue/dist/vue.js"></script>
+    <script src="./node_modules/vue-router/dist/vue-router.js"></script>
+    <script src="./jscript/1.router.js"></script>
+</body>
+
+</html>
