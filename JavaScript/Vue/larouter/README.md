@@ -14,3 +14,14 @@ npm install vue vue-router axios jquery bootstrap animate.css
 ### 方式
 . hash模式      开发时使用, 不会导致404, 不支持seo
 . h5 history.pushState      线上使用
+
+## vue-cli
+- 全局生成vue项目的脚手架
+
+```
+npm install vue-cli -g
+vue init webpack <项目名>
+cd 项目名字
+npm install
+npm run dev
+```

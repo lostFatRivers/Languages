@@ -6,18 +6,12 @@
 </head>
 <body>
     <div id="app">
-        
+        <router-link :to="{path:'/home'}">首页</router-link>
+        <router-link :to="{path:'/list'}">列表页</router-link>
         <router-view></router-view>
     </div>
     <script src="./node_modules/vue/dist/vue.js"></script>
     <script src="./node_modules/vue-router/dist/vue-router.js"></script>
-    <script>
-        let vm = new Vue({
-            el: '#app',
-            data: {
-                
-            }
-        });
-    </script>
+    <script src="./jscript/2.router.js"></script>
 </body>
 </html>
