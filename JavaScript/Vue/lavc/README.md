@@ -28,3 +28,15 @@ For a detailed explanation on how things work, check out the [guide](http://vuej
   - 如何定义模块 (一个js就是一个模块)
   - 如何导出模块 (export)
   - 如何使用模块 (import)
+
+
+## less
+项目用到less
+```
+npm install less less-loader axios vuex bootstrap
+```
+
+- mock 模拟数据
+- api 所有接口
+- base 基础组件
+- components 页面组件
