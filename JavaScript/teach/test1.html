@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="utf-8" />
+    <title>机器人聊天</title>
+    <link rel="stylesheet" href="./test.css">
+</head>
+
+<body>
+    <div class="chat">
+        <div class="chat-left">
+            <div class="chat-left-top">
+                
+            </div>
+            <div class="robot-bar active">
+                <div class="robot-icon"></div>
+                <div class="robot-name">Robot 1</div>
+            </div>
+            <div class="robot-bar">
+
+            </div>
+            <div class="robot-bar">
+
+            </div>
+            <div class="robot-bar">
+
+            </div>
+            <div class="robot-bar">
+
+            </div>
+
+        </div>
+        <div class="chat-center">
+            <div class="sidebar-left"></div>
+            <div class="chet-center-top">
+
+            </div>
+            <div class="robot-chat-bar">
+
+            </div>
+            <div class="robot-chat-bar active">
+
+            </div>
+            <div class="robot-chat-bar">
+
+            </div>
+            <div class="robot-chat-bar">
+
+            </div>
+        </div>
+        <div class="chat-right">
+            <div class="chat-history">
+                <div class="chat-target-top">
+                    <div style="padding-top: 20px;">小明</div>
+                </div>
+            </div>
+            <div style="width: 710px; border-bottom: 1px solid rgb(214, 214, 214);"></div>
+            <div class="chat-sender">
+                <div class="edit-area">
+                    <div >
+                        [表情]   [裁剪]   [文件]
+                    </div>
+                    <textarea name="chat-editer" id="ta-editer" onkeypress="handlerEnter"></textarea>
+                </div>
+                <div class="send-bt">
+                    <span style="font-size: 12px; color: rgb(136, 136, 136);">按下Ctrl+Enter换行</span> 
+                    <button class="bt-sender">发送</button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <script>
+        let handlerEnter = function(e) {
+            
+        }
+    </script>
+</body>
+
+</html>
