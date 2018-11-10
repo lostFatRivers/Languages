@@ -1,0 +1,62 @@
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <link rel="stylesheet" href="./jquery.mCustomScrollbar.min.css">
+</head>
+<style>
+.test{
+    width: 50px;
+    height: 200px;
+    float: left;
+    margin: 5px;
+    border: none;
+}
+.scrollbar{
+    width: 30px;
+    height: 300px;
+    margin: 0 auto;
+}
+.test-1 {
+    overflow: auto;
+}
+</style>
+
+<body>
+    <div class="test test-1">
+        <div class="scrollbar">
+            <div>1</div>
+            <div>2</div>
+            <div>3</div>
+            <div>4</div>
+            <div>5</div>
+            <div>6</div>
+            <div>7</div>
+            <div>8</div>
+            <div>9</div>
+            <div>10</div>
+            <div>11</div>
+        </div>
+        <div class="right"></div>
+    </div>
+
+    <script src="./jquery-1.9.1.min.js"></script>
+    <script src="./jquery.mCustomScrollbar.concat.min.js"></script>
+    
+    <script>
+        (function($){
+            $(window).load(function(){
+                $(".test-1").mCustomScrollbar({
+                    theme:"dark",
+                    setWidth:"200px",
+                    setHeight:"200px"
+                });
+            });
+        })(jQuery);
+    </script>
+</body>
+
+</html>

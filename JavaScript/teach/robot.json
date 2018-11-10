@@ -1,0 +1,391 @@
+{
+    "robot": [
+        {
+            "id": 1,
+            "puid": 1000001,
+            "name": "Robot1",
+            "age": 12,
+            "sex": 1,
+            "city": "北京",
+            "profile": "老师",
+            "chats": [
+                {
+                    "friendId": 2000001,
+                    "friendName": "好友1",
+                    "chatContent": [
+                        {"id": 123, "chat": "你是谁?"},
+                        {"id": 12, "chat": "我是你爹"}
+                    ]
+                },
+                {
+                    "friendId": 2000002,
+                    "friendName": "好友2",
+                    "chatContent": [
+                        {"id": 123, "chat": "你是谁?"},
+                        {"id": 12, "chat": "我是你爹"}
+                    ]
+                },
+                {
+                    "friendId": 2000003,
+                    "friendName": "好友3",
+                    "chatContent": [
+                        {"id": 123, "chat": "你是谁?"},
+                        {"id": 12, "chat": "我是你爹"}
+                    ]
+                },
+                {
+                    "friendId": 2000004,
+                    "friendName": "好友4",
+                    "chatContent": [
+                        {"id": 123, "chat": "你是谁?"},
+                        {"id": 12, "chat": "我是你爹"}
+                    ]
+                }
+            ]
+        },
+        {
+            "id": 2,
+            "puid": 1000002,
+            "name": "Robot2",
+            "age": 32,
+            "sex": 2,
+            "city": "上海",
+            "profile": "设计师",
+            "chats": [
+                {
+                    "friendId": 2000001,
+                    "friendName": "好友1",
+                    "chatContent": [
+                        {"id": 123, "chat": "你是谁?"},
+                        {"id": 12, "chat": "我是你爹"}
+                    ]
+                },
+                {
+                    "friendId": 2000002,
+                    "friendName": "好友2",
+                    "chatContent": [
+                        {"id": 123, "chat": "你是谁?"},
+                        {"id": 12, "chat": "我是你爹"}
+                    ]
+                },
+                {
+                    "friendId": 2000003,
+                    "friendName": "好友3",
+                    "chatContent": [
+                        {"id": 123, "chat": "你是谁?"},
+                        {"id": 12, "chat": "我是你爹"}
+                    ]
+                },
+                {
+                    "friendId": 2000004,
+                    "friendName": "好友4",
+                    "chatContent": [
+                        {"id": 123, "chat": "你是谁?"},
+                        {"id": 12, "chat": "我是你爹"}
+                    ]
+                }
+            ]
+        },
+        {
+            "id": 3,
+            "puid": 1000003,
+            "name": "Robot3",
+            "age": 16,
+            "sex": 2,
+            "city": "天津",
+            "profile": "大学生",
+            "chats": [
+                {
+                    "friendId": 2000001,
+                    "friendName": "好友1",
+                    "chatContent": [
+                        {"id": 123, "chat": "你是谁?"},
+                        {"id": 12, "chat": "我是你爹"}
+                    ]
+                },
+                {
+                    "friendId": 2000002,
+                    "friendName": "好友2",
+                    "chatContent": [
+                        {"id": 123, "chat": "你是谁?"},
+                        {"id": 12, "chat": "我是你爹"}
+                    ]
+                },
+                {
+                    "friendId": 2000003,
+                    "friendName": "好友3",
+                    "chatContent": [
+                        {"id": 123, "chat": "你是谁?"},
+                        {"id": 12, "chat": "我是你爹"}
+                    ]
+                },
+                {
+                    "friendId": 2000004,
+                    "friendName": "好友4",
+                    "chatContent": [
+                        {"id": 123, "chat": "你是谁?"},
+                        {"id": 12, "chat": "我是你爹"}
+                    ]
+                }
+            ]
+        },
+        {
+            "id": 4,
+            "puid": 1000004,
+            "name": "Robot4",
+            "age": 34,
+            "sex": 2,
+            "city": "成都",
+            "profile": "家庭主妇",
+            "chats": [
+                {
+                    "friendId": 2000001,
+                    "friendName": "好友1",
+                    "chatContent": [
+                        {"id": 123, "chat": "你是谁?"},
+                        {"id": 12, "chat": "我是你爹"}
+                    ]
+                },
+                {
+                    "friendId": 2000002,
+                    "friendName": "好友2",
+                    "chatContent": [
+                        {"id": 123, "chat": "你是谁?"},
+                        {"id": 12, "chat": "我是你爹"}
+                    ]
+                },
+                {
+                    "friendId": 2000003,
+                    "friendName": "好友3",
+                    "chatContent": [
+                        {"id": 123, "chat": "你是谁?"},
+                        {"id": 12, "chat": "我是你爹"}
+                    ]
+                },
+                {
+                    "friendId": 2000004,
+                    "friendName": "好友4",
+                    "chatContent": [
+                        {"id": 123, "chat": "你是谁?"},
+                        {"id": 12, "chat": "我是你爹"}
+                    ]
+                }
+            ]
+        },
+        {
+            "id": 5,
+            "puid": 1000005,
+            "name": "Robot5",
+            "age": 24,
+            "sex": 2,
+            "city": "上海",
+            "profile": "运营",
+            "chats": [
+                {
+                    "friendId": 2000001,
+                    "friendName": "好友1",
+                    "chatContent": [
+                        {"id": 123, "chat": "你是谁?"},
+                        {"id": 12, "chat": "我是你爹"}
+                    ]
+                },
+                {
+                    "friendId": 2000002,
+                    "friendName": "好友2",
+                    "chatContent": [
+                        {"id": 123, "chat": "你是谁?"},
+                        {"id": 12, "chat": "我是你爹"}
+                    ]
+                },
+                {
+                    "friendId": 2000003,
+                    "friendName": "好友3",
+                    "chatContent": [
+                        {"id": 123, "chat": "你是谁?"},
+                        {"id": 12, "chat": "我是你爹"}
+                    ]
+                },
+                {
+                    "friendId": 2000004,
+                    "friendName": "好友4",
+                    "chatContent": [
+                        {"id": 123, "chat": "你是谁?"},
+                        {"id": 12, "chat": "我是你爹"}
+                    ]
+                }
+            ]
+        },
+        {
+            "id": 6,
+            "puid": 1000006,
+            "name": "Robot6",
+            "age": 19,
+            "sex": 2,
+            "city": "杭州",
+            "profile": "动画配音",
+            "chats": [
+                {
+                    "friendId": 2000001,
+                    "friendName": "好友1",
+                    "chatContent": [
+                        {"id": 123, "chat": "你是谁?"},
+                        {"id": 12, "chat": "我是你爹"}
+                    ]
+                },
+                {
+                    "friendId": 2000002,
+                    "friendName": "好友2",
+                    "chatContent": [
+                        {"id": 123, "chat": "你是谁?"},
+                        {"id": 12, "chat": "我是你爹"}
+                    ]
+                },
+                {
+                    "friendId": 2000003,
+                    "friendName": "好友3",
+                    "chatContent": [
+                        {"id": 123, "chat": "你是谁?"},
+                        {"id": 12, "chat": "我是你爹"}
+                    ]
+                },
+                {
+                    "friendId": 2000004,
+                    "friendName": "好友4",
+                    "chatContent": [
+                        {"id": 123, "chat": "你是谁?"},
+                        {"id": 12, "chat": "我是你爹"}
+                    ]
+                }
+            ]
+        },
+        {
+            "id": 7,
+            "puid": 1000007,
+            "name": "Robot7",
+            "age": 43,
+            "sex": 1,
+            "city": "太原",
+            "profile": "画家",
+            "chats": [
+                {
+                    "friendId": 2000001,
+                    "friendName": "好友1",
+                    "chatContent": [
+                        {"id": 123, "chat": "你是谁?"},
+                        {"id": 12, "chat": "我是你爹"}
+                    ]
+                },
+                {
+                    "friendId": 2000002,
+                    "friendName": "好友2",
+                    "chatContent": [
+                        {"id": 123, "chat": "你是谁?"},
+                        {"id": 12, "chat": "我是你爹"}
+                    ]
+                },
+                {
+                    "friendId": 2000003,
+                    "friendName": "好友3",
+                    "chatContent": [
+                        {"id": 123, "chat": "你是谁?"},
+                        {"id": 12, "chat": "我是你爹"}
+                    ]
+                },
+                {
+                    "friendId": 2000004,
+                    "friendName": "好友4",
+                    "chatContent": [
+                        {"id": 123, "chat": "你是谁?"},
+                        {"id": 12, "chat": "我是你爹"}
+                    ]
+                }
+            ]
+        },
+        {
+            "id": 8,
+            "puid": 1000008,
+            "name": "Robot8",
+            "age": 28,
+            "sex": 2,
+            "city": "黑龙江",
+            "profile": "护士",
+            "chats": [
+                {
+                    "friendId": 2000001,
+                    "friendName": "好友1",
+                    "chatContent": [
+                        {"id": 123, "chat": "你是谁?"},
+                        {"id": 12, "chat": "我是你爹"}
+                    ]
+                },
+                {
+                    "friendId": 2000002,
+                    "friendName": "好友2",
+                    "chatContent": [
+                        {"id": 123, "chat": "你是谁?"},
+                        {"id": 12, "chat": "我是你爹"}
+                    ]
+                },
+                {
+                    "friendId": 2000003,
+                    "friendName": "好友3",
+                    "chatContent": [
+                        {"id": 123, "chat": "你是谁?"},
+                        {"id": 12, "chat": "我是你爹"}
+                    ]
+                },
+                {
+                    "friendId": 2000004,
+                    "friendName": "好友4",
+                    "chatContent": [
+                        {"id": 123, "chat": "你是谁?"},
+                        {"id": 12, "chat": "我是你爹"}
+                    ]
+                }
+            ]
+        },
+        {
+            "id": 9,
+            "puid": 1000009,
+            "name": "Robot9",
+            "age": 26,
+            "sex": 2,
+            "city": "青岛",
+            "profile": "导游",
+            "chats": [
+                {
+                    "friendId": 2000001,
+                    "friendName": "好友1",
+                    "chatContent": [
+                        {"id": 123, "chat": "你是谁?"},
+                        {"id": 12, "chat": "我是你爹"}
+                    ]
+                },
+                {
+                    "friendId": 2000002,
+                    "friendName": "好友2",
+                    "chatContent": [
+                        {"id": 123, "chat": "你是谁?"},
+                        {"id": 12, "chat": "我是你爹"}
+                    ]
+                },
+                {
+                    "friendId": 2000003,
+                    "friendName": "好友3",
+                    "chatContent": [
+                        {"id": 123, "chat": "你是谁?"},
+                        {"id": 12, "chat": "我是你爹"}
+                    ]
+                },
+                {
+                    "friendId": 2000004,
+                    "friendName": "好友4",
+                    "chatContent": [
+                        {"id": 123, "chat": "你是谁?"},
+                        {"id": 12, "chat": "我是你爹"}
+                    ]
+                }
+            ]
+        }
+    ]
+}
