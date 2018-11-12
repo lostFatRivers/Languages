@@ -189,6 +189,15 @@ body {
     font-size: 14px;
 }
 
+.chat-scroll {
+    width: 95%;
+    height: 470px;
+    margin: 0 auto;
+    margin-top: 4px;
+    margin-bottom: 4px;
+    overflow-x: hidden;
+}
+
 .bt-sender {
     height: 30px;
     width: 90px;
@@ -249,4 +258,92 @@ body {
 
 .iconfont {
     font-size: 24px !important;
+}
+
+.bubble-icon {
+    width: 45px;
+    height: 45px;
+    background: url("./icon2.png");
+    background-repeat: no-repeat;
+    background-size: cover;
+    -webkit-background-size: cover;
+    -o-background-size: cover;
+    background-position: center 0;
+    border-radius: 5px;
+    margin-top: 10px;
+}
+
+.chatbubbleleft {
+    /* width: auto !important;
+    width: 150px;
+    max-width: 300px; */
+    width: fit-content;
+    width: -webkit-fit-content;
+    width: -moz-fit-content;
+    word-wrap:break-word;
+    min-width: 50px;
+    max-width: 430px;
+    height: auto !important;
+    min-height: 16px;
+    margin-left: 30px;
+    margin-top: 15px;
+    padding: 10px 15px;
+    font-size: 14px;
+    background-color: rgb(166, 212, 242);
+    border-radius: 8px;
+    position: relative;
+    float: left;
+} 
+
+.chatbubbleleft:before {
+    content:'';
+    position:absolute;
+    right:100%;
+    top:-10px;
+    width:12px;
+    height:17px;
+    border-width:0;
+    border-style:solid;
+    border-color:transparent;
+    margin-right:-3px;
+    border-bottom-width:7px;
+    border-bottom-color:currentColor;
+    border-radius:0 0 0 34px;
+    color:rgb(166, 212, 242);
+}
+
+.chatbubbleright {
+    width: fit-content;
+    width: -webkit-fit-content;
+    width: -moz-fit-content;
+    word-wrap:break-word;
+    min-width: 50px;
+    max-width: 430px;
+    height: auto !important;
+    min-height: 16px;
+    margin-right: 30px;
+    margin-top: 15px;
+    padding: 10px 15px;
+    font-size: 14px;
+    background-color: rgb(166, 212, 242);
+    border-radius: 8px;
+    position: relative;
+    float: right;
+} 
+
+.chatbubbleright:before {
+    content:'';
+    position:absolute;
+    left:100%;
+    top:-10px;
+    width:12px;
+    height:17px;
+    border-width:0;
+    border-style:solid;
+    border-color:transparent;
+    margin-left:-3px;
+    border-bottom-width:7px;
+    border-bottom-color:currentColor;
+    border-radius:0 0 34px 0;
+    color:rgb(166, 212, 242);
 }

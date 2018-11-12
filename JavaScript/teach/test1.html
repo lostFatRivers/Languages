@@ -5,7 +5,6 @@
     <meta charset="utf-8" />
     <title>机器人聊天</title>
     <link rel="stylesheet" href="./test.css">
-    <link rel="stylesheet" href="./jquery.mCustomScrollbar.min.css">
     <link rel="stylesheet" href="http://at.alicdn.com/t/font_910608_8493dwyfe5w.css">
 </head>
 
@@ -17,7 +16,7 @@
 
                 </div>
                 <div class="left-scroll">
-                    <robot-bar v-for="value in robotArray" :key="value.id" :robot="value" :active-id="curRobot.id"
+                    <robot-bar v-for="(value, index) in robotArray" :key="index" :robot="value" :active-id="curRobot.id"
                         @selected-robot="selectRobot(value.id)"></robot-bar>
                 </div>
             </div>
@@ -45,14 +44,20 @@
                     </div>
                 </div>
                 <div class="center-scroll">
-                    <robot-chat-bar v-for="value in curRobot.chats" :key="value.id" :chat="value" :active-id="curRobot.curChat.friendId"
+                    <robot-chat-bar v-for="(value, index) in curRobot.chats" :key="index" :chat="value" :active-id="curRobot.curChat.friendId"
                         @selected-chat="selectChat(value.friendId)"></robot-chat-bar>
                 </div>
             </div>
             <div class="chat-right">
                 <div class="chat-history">
                     <div class="chat-target-top">
-                        <div style="padding-top: 20px;">小明</div>
+                        <div style="padding-top: 20px;">
+                            {{this.curRobot.curChat.friendName ? this.curRobot.curChat.friendName : ''}}
+                        </div>
+                    </div>
+                    <div id="chat-scroll-content" class="chat-scroll">
+                        <chat-bubble v-for="(value, index) in curRobot.curChat.chatContent" :key="index" :bubble="value"
+                            :friend="curRobot.curChat.friendId"></chat-bubble>
                     </div>
                 </div>
                 <div style="width: 710px; border-bottom: 1px solid rgb(214, 214, 214);"></div>
@@ -61,11 +66,11 @@
                         <div>
                             <span><i class="iconfont icon-biaoqing"></i></span>
                         </div>
-                        <textarea name="chat-editer" id="ta-editer" onkeypress="handlerEnter"></textarea>
+                        <textarea name="chat-editer" id="ta-editer" v-model="editContent" @keyup.enter="shootMessage"></textarea>
                     </div>
                     <div class="send-bt">
                         <span style="font-size: 12px; color: rgb(136, 136, 136);">按下Ctrl+Enter换行</span>
-                        <button class="bt-sender">发送</button>
+                        <button class="bt-sender" @click="shootMessage">发送</button>
                     </div>
                 </div>
             </div>
@@ -78,7 +83,7 @@
     <template id="temp-robot-bar">
         <div class="robot-bar" :class="{active: activeId === robot.id}" @click="$emit('selected-robot')">
             <div class="robot-icon"></div>
-            <div class="robot-name">{{robot.name}}</div>
+            <div class="robot-name">{{robot.simpleName}}</div>
         </div>
     </template>
 
@@ -89,29 +94,27 @@
                 <div>{{chat.friendName}}</div>
                 <div style="font-size: 12px; color: rgb(136, 136, 136);">{{chat.friendId}}</div>
             </div>
-            <div class="friend-notice" v-show="chat.readNum < chat.chatContent.length">{{chat.chatContent.length - chat.readNum}}</div>
+            <div class="friend-notice" v-show="this.chat.chatContent.filter(ec => ec.id == this.chat.friendId).length - this.chat.readNum > 0">
+                {{this.chat.chatContent.filter(ec => ec.id == this.chat.friendId).length - this.chat.readNum}}
+            </div>
+        </div>
+    </template>
+
+    <template id="temp-chat-bubble">
+        <div>
+            <div class="bubble-icon" :style="iconSwitch"></div>
+            <div :class="{chatbubbleleft: bubble.id == friend, chatbubbleright: bubble.id != friend}">
+                {{bubble.chat}}
+            </div>
+            <div style="clear: both; width: 100%"></div>
         </div>
     </template>
 
     <script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
     <script src="./jquery-1.9.1.min.js"></script>
-    <script src="./jquery.mCustomScrollbar.concat.min.js"></script>
+    <script src="./axios.js"></script>
     <script src="./test.js"></script>
 
-    <script>
-        (function ($) {
-            $(window).load(function () {
-                $(".left-scroll").mCustomScrollbar({
-                    theme: "light-2",
-                    scrollInertia: 150
-                });
-                $(".center-scroll").mCustomScrollbar({
-                    theme: "light-2",
-                    scrollInertia: 150
-                });
-            });
-        })(jQuery);
-    </script>
 </body>
 
 </html>

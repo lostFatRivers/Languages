@@ -1,62 +1,53 @@
+<!DOCTYPE html>
 <html lang="en">
 
 <head>
     <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta http-equiv="X-UA-Compatible" content="ie=edge">
-    <title>Document</title>
-    <link rel="stylesheet" href="./jquery.mCustomScrollbar.min.css">
-</head>
-<style>
-.test{
-    width: 50px;
-    height: 200px;
-    float: left;
-    margin: 5px;
-    border: none;
-}
-.scrollbar{
-    width: 30px;
-    height: 300px;
-    margin: 0 auto;
-}
-.test-1 {
-    overflow: auto;
-}
+    <title></title>
+    <style>
+        #box{
+       background: #d87093;
+       margin:100px auto;
+      
+    }
+    #ha{
+       margin: 20px; 
+    }
 </style>
+</head>
 
 <body>
-    <div class="test test-1">
-        <div class="scrollbar">
-            <div>1</div>
-            <div>2</div>
-            <div>3</div>
-            <div>4</div>
-            <div>5</div>
-            <div>6</div>
-            <div>7</div>
-            <div>8</div>
-            <div>9</div>
-            <div>10</div>
-            <div>11</div>
-        </div>
-        <div class="right"></div>
-    </div>
+    <input type="button" id="ha" value="点我啊">
+    <br><br>
+    <div id="box" style="width:100px; height:100px;"></div>
 
-    <script src="./jquery-1.9.1.min.js"></script>
-    <script src="./jquery.mCustomScrollbar.concat.min.js"></script>
-    
     <script>
-        (function($){
-            $(window).load(function(){
-                $(".test-1").mCustomScrollbar({
-                    theme:"dark",
-                    setWidth:"200px",
-                    setHeight:"200px"
-                });
-            });
-        })(jQuery);
-    </script>
-</body>
+        var ha = document.getElementById('ha');
+        var box = document.getElementById('box');
+        var speed = 5;
 
-</html>
+
+        ha.onclick = function () {
+            setInterval(function () {
+                var old_width = box.style.width;
+                var new_width = parseInt(old_width) + speed;
+                box.style.width = new_width + 'px';
+                var old_height = box.style.height;
+                var new_height = parseInt(old_height) + speed;
+                box.style.height = new_height + 'px';
+
+                if (new_width >= 500 && new_height >= 500) {
+                    speed = -5;
+                } else if (new_width <= 100 && new_height <= 100) {
+                    speed = 5;
+                }
+
+
+            }, 20);
+        }
+
+    </script>
+
+
+</body>
+<html>
