@@ -407,6 +407,18 @@ body {
     cursor: pointer;
 }
 
+.setupLogin {
+    margin-top: 8px;
+    margin-left: 50px;
+    color: rgb(181, 181, 181);
+    float: left;
+}
+
+.setupLogin:hover {
+    color: rgb(181, 181, 181);
+    cursor: pointer;
+}
+
 .robot-area {
     margin-top: 18px; 
     color: rgb(230, 230, 230);

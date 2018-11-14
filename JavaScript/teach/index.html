@@ -88,6 +88,9 @@
         </div>
         <div v-else>
             <div class="login">
+                <div class="setupLogin" @click="setupLoginAddress">
+                    <span><i class="iconfont icon-shezhi" style="font-size: 14px !important;"></i></span>
+                </div>
                 <div class="connect-status">
                     连接状态 : {{connectStatus}}
                 </div>
@@ -137,7 +140,7 @@
         </div>
     </template>
 
-    <script src="./js/vue.min.js"></script>
+    <script src="./js/vue.js"></script>
     <script src="./js/jquery-1.9.1.min.js"></script>
     <script src="./js/axios.js"></script>
     <script src="./js/robot-gm.js"></script>

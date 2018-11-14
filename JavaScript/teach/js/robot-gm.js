@@ -13,8 +13,6 @@ const Constants = {
     SC_CHAT_MSG: 1006
 }
 
-const WS_ADDRESS = 'ws://127.0.0.1:20800/websocket';
-
 class Robot {
     constructor(id, puid, name, age, sex, city, profile) {
         this.id = id;
@@ -135,6 +133,7 @@ let vm = new Vue({
         loginSecret: '',
         minRobotId: 0,
         maxRobotId: 0,
+        wsAddress: 'ws://192.168.1.192:10800/websocket',
         websocketConn: null,
         connectStatus: ""
     },
@@ -147,6 +146,16 @@ let vm = new Vue({
         'chat-bubble': chatBubble
     },
     methods: {
+        setupLoginAddress() {
+            let value = prompt("设置登录服地址, 例如: 127.0.0.1:8080");
+            if (value == null || value.trim() == '') {
+                alert('输入有误, 请重新输入.');
+                return;
+            }
+            this.connectStatus = "正在重新连接..."
+            this.wsAddress = 'ws://' + value.trim() + '/websocket';
+            this.initData();
+        },
         loginRobotConsole() {
             let secretStr = this.loginSecret;
             this.sendMessage(JSON.stringify({type: Constants.CS_LOGIN, secret: secretStr}));
@@ -160,6 +169,12 @@ let vm = new Vue({
             let valSplit = value.split(',');
             this.minRobotId = parseInt(valSplit[0]);
             this.maxRobotId = parseInt(valSplit[1]);
+            if (this.minRobotId >= this.maxRobotId) {
+                this.minRobotId = 0;
+                this.maxRobotId = 0;
+                alert('输入有误, 请重新输入.');
+                return;
+            }
             this.sendMessage(JSON.stringify({
                 type: Constants.CS_SET_AREA,
                 secret: this.loginSecret,
@@ -212,7 +227,7 @@ let vm = new Vue({
                 alert("浏览器版本太低, 请换个浏览器重新打开.");
                 return;
             }
-            this.websocketConn = new WebSocket(WS_ADDRESS);
+            this.websocketConn = new WebSocket(this.wsAddress);
             this.websocketConn.onopen = ev => {
                 this.connectStatus = "已连接...";
             };
@@ -282,6 +297,7 @@ let vm = new Vue({
             }
         },
         assembleRobotData(robotData) {
+            this.robotArray = this.robotArray.filter(er => er.id >= this.minRobotId && er.id <= this.maxRobotId)
             for (let er of robotData) {
                 let robot = new Robot(er.id, er.puid, er.name, er.age, er.sex, er.city, er.profile);
                 if (strLen(er.name) > 6) {
@@ -299,9 +315,9 @@ let vm = new Vue({
                     }
                 }
                 this.robotArray.push(robot);
-                if (!this.curRobot) {
-                    this.curRobot = robot;
-                }
+            }
+            if (!this.curRobot && this.robotArray.length > 0) {
+                this.curRobot = this.robotArray[0];
             }
         },
         sortRobotArray() {
