@@ -13,6 +13,8 @@ const Constants = {
     SC_CHAT_MSG: 1006
 }
 
+const WS_ADDRESS = 'ws://127.0.0.1:20800/websocket';
+
 class Robot {
     constructor(id, puid, name, age, sex, city, profile) {
         this.id = id;
@@ -25,6 +27,11 @@ class Robot {
         this.profile = profile;
         this.chats = [];
         this.curChat = null;
+        this.refresh();
+    }
+
+    refresh() {
+        this.refreshTime = new Date().getMilliseconds();
     }
 }
 
@@ -205,7 +212,7 @@ let vm = new Vue({
                 alert("浏览器版本太低, 请换个浏览器重新打开.");
                 return;
             }
-            this.websocketConn = new WebSocket('ws://127.0.0.1:8080/websocket');
+            this.websocketConn = new WebSocket(WS_ADDRESS);
             this.websocketConn.onopen = ev => {
                 this.connectStatus = "已连接...";
             };
@@ -270,6 +277,8 @@ let vm = new Vue({
                     let chatC = new ChatContent(ecc.id, ecc.chat)
                     friend.chatContent.push(chatC);
                 }
+                robot.refresh();
+                this.sortRobotArray();
             }
         },
         assembleRobotData(robotData) {
@@ -294,6 +303,9 @@ let vm = new Vue({
                     this.curRobot = robot;
                 }
             }
+        },
+        sortRobotArray() {
+            this.robotArray = this.robotArray.sort((a, b) => a.refreshTime - b.refreshTime);
         }
     },
     computed: {
