@@ -68,7 +68,6 @@ body {
 .robot-icon {
     width: 40px;
     height: 40px;
-    background: url("./icon.jpg");
     background-repeat: no-repeat;
     background-size: cover;
     -webkit-background-size: cover;
@@ -79,6 +78,17 @@ body {
     margin-top: 13px;
     margin-left: 20px;
     margin-right: 10px;
+    position:relative;
+}
+
+.iconnotice {
+    background: #f00;
+    border-radius: 50%;
+    width: 12px;
+    height: 12px;
+    position:absolute; 
+    right:-8px; 
+    top:-6px;
 }
 
 .robot-name {
@@ -91,7 +101,6 @@ body {
 .friend-icon {
     width: 40px;
     height: 40px;
-    background: url("./icon2.png");
     background-repeat: no-repeat;
     background-size: cover;
     -webkit-background-size: cover;
@@ -135,7 +144,6 @@ body {
 .detail-icon {
     width: 70px;
     height: 70px;
-    background: url("./icon.jpg");
     background-repeat: no-repeat;
     background-size: cover;
     -webkit-background-size: cover;
@@ -221,7 +229,7 @@ body {
     padding-right: 20px;
 }
 .send-bt {
-    padding-left: 500px;
+    padding-left: 610px;
 }
 
 #ta-editer {
@@ -277,9 +285,9 @@ body {
     /* width: auto !important;
     width: 150px;
     max-width: 300px; */
-    width: fit-content;
     width: -webkit-fit-content;
     width: -moz-fit-content;
+    width: fit-content;
     word-wrap:break-word;
     min-width: 50px;
     max-width: 430px;
@@ -346,4 +354,69 @@ body {
     border-bottom-color:currentColor;
     border-radius:0 0 34px 0;
     color:rgb(166, 212, 242);
+}
+
+.login {
+    width: 360px;
+    height: 510px;
+    margin: auto;
+    margin-top: 100px;
+    background-color: rgb(46, 50, 56);
+    border-radius: 3px;
+    box-shadow: rgb(145, 145, 145) 10px 10px 30px 5px;
+    font-size: 32px;
+}
+
+.inputSecret {
+    width: 260px;
+    height: 96px;
+    margin: auto;
+    padding-top: 30px;
+}
+
+.bt-submit {
+    width: 200px;
+    height: 40px;
+    margin: auto;
+    margin-top: 80px;
+    font-size: 28px;
+    border-radius:6px;
+    border: 3px solid #DBDBDB;
+    color: rgb(230, 230, 230);
+    text-align: center;
+}
+
+.bt-submit:hover {
+    background-color: rgb(39, 43, 48);
+    border: 3px solid rgb(201, 201, 201);
+    color: rgb(201, 201, 201);
+    cursor: pointer;
+}
+
+.setupIcon {
+    width: 40px;
+    height: 40px;
+    color: rgb(230, 230, 230);
+    margin-left: 15px; 
+    margin-top: 25px; 
+    float: left;
+}
+
+.setupIcon:hover {
+    color: rgb(181, 181, 181);
+    cursor: pointer;
+}
+
+.robot-area {
+    margin-top: 18px; 
+    color: rgb(230, 230, 230);
+    font-size: 14px;
+}
+
+.connect-status {
+    font-size: 14px; 
+    text-align: left;
+    padding-top: 50px;
+    margin-left: 50px;
+    color: rgb(181, 181, 181);
 }

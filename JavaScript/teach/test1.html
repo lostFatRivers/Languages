@@ -13,7 +13,15 @@
         <div v-if="isLogin" class="chat">
             <div class="chat-left">
                 <div class="chat-left-top">
-
+                    <div class="setupIcon" @click="setupRobotArea">
+                        <span><i class="iconfont icon-shezhi"></i></span>
+                    </div>
+                    <div class="robot-area">
+                        <span>范围 :</span>
+                        <div>
+                            {{minRobotId}} - {{maxRobotId}}
+                        </div>
+                    </div>
                 </div>
                 <div class="left-scroll">
                     <robot-bar v-for="(value, index) in robotArray" :key="index" :robot="value" :active-id="curRobot.id"
@@ -23,8 +31,8 @@
             <div class="chat-center">
                 <div class="sidebar-left"></div>
                 <div class="chet-center-top">
-                    <div v-show="curRobot">
-                        <div class="detail-icon"></div>
+                    <div v-if="curRobot">
+                        <div class="detail-icon" :style="robotDetailIcon"></div>
                         <div class="detail-key">
                             <div>名称 :</div>
                             <div>PUID :</div>
@@ -44,20 +52,24 @@
                     </div>
                 </div>
                 <div class="center-scroll">
-                    <robot-chat-bar v-for="(value, index) in curRobot.chats" :key="index" :chat="value" :active-id="curRobot.curChat.friendId"
-                        @selected-chat="selectChat(value.friendId)"></robot-chat-bar>
+                    <div v-if="curRobot">
+                        <robot-chat-bar v-for="(value, index) in curRobot.chats" :key="index" :chat="value" :active-id="curRobot.curChat ? 0 : curRobot.curChat.friendId"
+                            @selected-chat="selectChat(value.friendId)"></robot-chat-bar>
+                    </div>
                 </div>
             </div>
             <div class="chat-right">
                 <div class="chat-history">
                     <div class="chat-target-top">
-                        <div style="padding-top: 20px;">
+                        <div v-if="curRobot && curRobot.curChat" style="padding-top: 20px;">
                             {{this.curRobot.curChat.friendName ? this.curRobot.curChat.friendName : ''}}
                         </div>
                     </div>
                     <div id="chat-scroll-content" class="chat-scroll">
-                        <chat-bubble v-for="(value, index) in curRobot.curChat.chatContent" :key="index" :bubble="value"
-                            :friend="curRobot.curChat.friendId"></chat-bubble>
+                        <div v-if="curRobot && curRobot.curChat">
+                            <chat-bubble v-for="(value, index) in curRobot.curChat.chatContent" :key="index" :bubble="value"
+                                :friend="curRobot.curChat.friendId" :robotsex="curRobot.sex" :friendsex="curRobot.curChat.sex"></chat-bubble>
+                        </div>
                     </div>
                 </div>
                 <div style="width: 710px; border-bottom: 1px solid rgb(214, 214, 214);"></div>
@@ -66,43 +78,58 @@
                         <div>
                             <span><i class="iconfont icon-biaoqing"></i></span>
                         </div>
-                        <textarea name="chat-editer" id="ta-editer" v-model="editContent" @keyup.enter="shootMessage"></textarea>
+                        <textarea name="chat-editer" id="ta-editer" v-model="editContent" @keyup="keyupHandler"></textarea>
                     </div>
                     <div class="send-bt">
-                        <span style="font-size: 12px; color: rgb(136, 136, 136);">按下Ctrl+Enter换行</span>
                         <button class="bt-sender" @click="shootMessage">发送</button>
                     </div>
                 </div>
             </div>
         </div>
         <div v-else>
-            请先登录
+            <div class="login">
+                <div class="connect-status">
+                    连接状态 : {{connectStatus}}
+                </div>
+                <div class="inputSecret">
+                    <label for="loginName" style="color: rgb(230, 230, 230);">验证码 :</label>
+                    <input type="text" name="loginName" id="loginName" v-model="loginSecret" 
+                        style="width: 248px; margin-top: 15px; font-size: 26px; padding: 3px 5px; border-radius: 4px; border: 1px solid rgb(230, 230, 230);"
+                        @keyup.enter="loginRobotConsole">
+                </div>
+                <div class="bt-submit" @click="loginRobotConsole">
+                    登录
+                </div>
+                <div style="font-size: 11px; color: rgb(130, 130, 130); text-align: center; margin-top: 30px;">
+                    请前往GM后台获取登录验证码. (每个验证码只仅可使用一次)
+                </div>
+            </div>
         </div>
     </div>
 
     <template id="temp-robot-bar">
         <div class="robot-bar" :class="{active: activeId === robot.id}" @click="$emit('selected-robot')">
-            <div class="robot-icon"></div>
+            <div class="robot-icon" :style="robotIcon"><div :class="{iconnotice: hasNewMessage}"></div></div>
             <div class="robot-name">{{robot.simpleName}}</div>
         </div>
     </template>
 
     <template id="temp-robot-chat-bar">
         <div class="robot-chat-bar" :class="{active: activeId === chat.friendId}" @click="$emit('selected-chat')">
-            <div class="friend-icon"></div>
+            <div class="friend-icon" :style="friendIcon"></div>
             <div class="friend-name">
                 <div>{{chat.friendName}}</div>
                 <div style="font-size: 12px; color: rgb(136, 136, 136);">{{chat.friendId}}</div>
             </div>
-            <div class="friend-notice" v-show="this.chat.chatContent.filter(ec => ec.id == this.chat.friendId).length - this.chat.readNum > 0">
-                {{this.chat.chatContent.filter(ec => ec.id == this.chat.friendId).length - this.chat.readNum}}
+            <div class="friend-notice" v-show="notReadNum > 0">
+                {{notReadNum}}
             </div>
         </div>
     </template>
 
     <template id="temp-chat-bubble">
         <div>
-            <div class="bubble-icon" :style="iconSwitch"></div>
+            <div class="bubble-icon" :style="[iconSwitch, iconBgSwitch]"></div>
             <div :class="{chatbubbleleft: bubble.id == friend, chatbubbleright: bubble.id != friend}">
                 {{bubble.chat}}
             </div>
@@ -110,7 +137,7 @@
         </div>
     </template>
 
-    <script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
+    <script src="./vue.min.js"></script>
     <script src="./jquery-1.9.1.min.js"></script>
     <script src="./axios.js"></script>
     <script src="./test.js"></script>

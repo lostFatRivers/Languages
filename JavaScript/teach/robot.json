@@ -3,7 +3,182 @@
         {
             "id": 1,
             "puid": 1000001,
-            "name": "Robot1",
+            "name": "梦里花落知多少",
+            "age": 12,
+            "sex": 1,
+            "city": "北京",
+            "profile": "老师",
+            "chats": [
+                {
+                    "friendId": 2000001,
+                    "friendName": "好友1",
+                    "age" : 19,
+                    "sex" : 2,
+                    "chatContent": [
+                        {"id": 2000001, "chat": "你是谁?"},
+                        {"id": 12, "chat": "我是你爹"}
+                    ]
+                },
+                {
+                    "friendId": 2000002,
+                    "friendName": "好友2",
+                    "age" : 19,
+                    "sex" : 2,
+                    "chatContent": [
+                        {"id": 2000002, "chat": "你是谁?"},
+                        {"id": 12, "chat": "我是你爹"}
+                    ]
+                },
+                {
+                    "friendId": 2000003,
+                    "friendName": "好友3",
+                    "age" : 19,
+                    "sex" : 1,
+                    "chatContent": [
+                        {"id": 2000003, "chat": "你是谁?"},
+                        {"id": 12, "chat": "我是你爹"}
+                    ]
+                },
+                {
+                    "friendId": 2000004,
+                    "friendName": "好友4",
+                    "age" : 19,
+                    "sex" : 2,
+                    "chatContent": [
+                        {"id": 2000004, "chat": "你是谁?"},
+                        {"id": 12, "chat": "我是你爹"}
+                    ]
+                },
+                {
+                    "friendId": 2000005,
+                    "friendName": "好友5",
+                    "age" : 19,
+                    "sex" : 1,
+                    "chatContent": [
+                        {"id": 2000005, "chat": "你是谁?"},
+                        {"id": 12, "chat": "我是你爹"}
+                    ]
+                },
+                {
+                    "friendId": 2000006,
+                    "friendName": "好友6",
+                    "age" : 19,
+                    "sex" : 2,
+                    "chatContent": [
+                        {"id": 2000006, "chat": "你是谁?"},
+                        {"id": 12, "chat": "我是你爹"}
+                    ]
+                }
+            ]
+        },
+        {
+            "id": 2,
+            "puid": 1000002,
+            "name": "Robot2",
+            "age": 32,
+            "sex": 2,
+            "city": "上海",
+            "profile": "设计师",
+            "chats": [
+                {
+                    "friendId": 2000001,
+                    "friendName": "好友1",
+                    "age" : 19,
+                    "sex" : 2,
+                    "chatContent": [
+                        {"id": 2000001, "chat": "你是谁?"},
+                        {"id": 12, "chat": "我是你爹"}
+                    ]
+                },
+                {
+                    "friendId": 2000002,
+                    "friendName": "好友2",
+                    "age" : 19,
+                    "sex" : 1,
+                    "chatContent": [
+                        {"id": 2000002, "chat": "你是谁?"},
+                        {"id": 12, "chat": "我是你爹"}
+                    ]
+                },
+                {
+                    "friendId": 2000003,
+                    "friendName": "好友3",
+                    "age" : 19,
+                    "sex" : 1,
+                    "chatContent": [
+                        {"id": 2000003, "chat": "你是谁?"},
+                        {"id": 12, "chat": "我是你爹"}
+                    ]
+                },
+                {
+                    "friendId": 2000004,
+                    "friendName": "好友4",
+                    "age" : 19,
+                    "sex" : 2,
+                    "chatContent": [
+                        {"id": 2000004, "chat": "你是谁?"},
+                        {"id": 12, "chat": "我是你爹"}
+                    ]
+                }
+            ]
+        },
+        {
+            "id": 3,
+            "puid": 1000003,
+            "name": "Robot3",
+            "age": 16,
+            "sex": 2,
+            "city": "天津",
+            "profile": "大学生",
+            "chats": [
+                {
+                    "friendId": 2000001,
+                    "friendName": "好友1",
+                    "age" : 19,
+                    "sex" : 2,
+                    "chatContent": [
+                        {"id": 2000001, "chat": "你是谁?"},
+                        {"id": 12, "chat": "我是你爹"}
+                    ]
+                },
+                {
+                    "friendId": 2000002,
+                    "friendName": "好友2",
+                    "age" : 19,
+                    "sex" : 1,
+                    "chatContent": [
+                        {"id": 2000002, "chat": "你是谁?"},
+                        {"id": 12, "chat": "我是你爹"}
+                    ]
+                },
+                {
+                    "friendId": 2000003,
+                    "friendName": "好友3",
+                    "age" : 19,
+                    "sex" : 1,
+                    "chatContent": [
+                        {"id": 2000003, "chat": "你是谁?"},
+                        {"id": 12, "chat": "我是你爹"}
+                    ]
+                },
+                {
+                    "friendId": 2000004,
+                    "friendName": "好友4",
+                    "age" : 19,
+                    "sex" : 2,
+                    "chatContent": [
+                        {"id": 2000004, "chat": "你是谁?"},
+                        {"id": 12, "chat": "我是你爹"}
+                    ]
+                }
+            ]
+        }
+    ],
+    "robot2": [
+        {
+            "id": 1,
+            "puid": 1000001,
+            "name": "梦里花落知多少",
             "age": 12,
             "sex": 1,
             "city": "北京",
