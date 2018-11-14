@@ -29,7 +29,7 @@ class Robot {
     }
 
     refresh() {
-        this.refreshTime = new Date().getMilliseconds();
+        this.refreshTime = new Date().getTime();
     }
 }
 
@@ -206,21 +206,16 @@ let vm = new Vue({
                 content: shootChat
             }));
             this.editContent = "";
-            Vue.nextTick(() => {
-                let editerDom = document.getElementById('chat-scroll-content');
-                editerDom.scrollTop = editerDom.scrollHeight;
-            });
+            this.chatScrollTop();
         },
         selectRobot(robotId) {
             this.curRobot = this.robotArray.find(va => va.id === robotId);
+            this.chatScrollTop();
         },
         selectChat(chatId) {
             this.curRobot.curChat = this.curRobot.chats.find(va => va.friendId === chatId);
             this.curRobot.curChat.readNum = this.curRobot.curChat.chatContent.filter(ec => ec.id == this.curRobot.curChat.friendId).length;
-            Vue.nextTick(() => {
-                let editerDom = document.getElementById('chat-scroll-content');
-                editerDom.scrollTop = editerDom.scrollHeight;
-            });
+            this.chatScrollTop();
         },
         initData() {
             if (!WebSocket) {
@@ -294,7 +289,14 @@ let vm = new Vue({
                 }
                 robot.refresh();
                 this.sortRobotArray();
+                this.chatScrollTop();
             }
+        },
+        chatScrollTop() {
+            Vue.nextTick(() => {
+                let editerDom = document.getElementById('chat-scroll-content');
+                editerDom.scrollTop = editerDom.scrollHeight;
+            });
         },
         assembleRobotData(robotData) {
             this.robotArray = this.robotArray.filter(er => er.id >= this.minRobotId && er.id <= this.maxRobotId)
@@ -321,7 +323,7 @@ let vm = new Vue({
             }
         },
         sortRobotArray() {
-            this.robotArray = this.robotArray.sort((a, b) => a.refreshTime - b.refreshTime);
+            this.robotArray = this.robotArray.sort((a, b) => b.refreshTime - a.refreshTime);
         }
     },
     computed: {
