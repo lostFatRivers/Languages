@@ -1,15 +1,15 @@
 const Constants = {
-    // 登录
+    /** 登录 */ 
     CS_LOGIN: 1001,
-    // 登录反馈
+    /** 登录反馈 */ 
     SC_LOGIN: 1002,
-    // 设置范围
+    /** 设置范围 */ 
     CS_SET_AREA: 1003,
-    // 设置范围反馈
+    /** 设置范围反馈 */
     SC_SET_AREA: 1004,
-    // 发送聊天消息
+    /** 发送聊天消息 */
     CS_CHAT_MSG: 1005,
-    // 接收聊天消息
+    /** 接收聊天消息 */
     SC_CHAT_MSG: 1006
 }
 
@@ -62,7 +62,7 @@ let robotBar = {
         },
         robotIcon() {
             return {
-                backgroundImage: "url('./robotIcon" + this.robot.sex + ".png')"
+                backgroundImage: "url('./static/img/robotIcon" + this.robot.sex + ".png')"
             };
         }
     }
@@ -73,11 +73,14 @@ let robotChatBar = {
     template: '#temp-robot-chat-bar',
     computed: {
         notReadNum() {
+            if (this.chat.friendId == this.activeId) {
+                this.chat.readNum = this.chat.chatContent.filter(ec => ec.id == this.chat.friendId).length;
+            }
             return this.chat.chatContent.filter(ec => ec.id == this.chat.friendId).length - this.chat.readNum;
         },
         friendIcon() {
             return {
-                backgroundImage: "url('./friendIcon" + this.chat.sex + ".png')"
+                backgroundImage: "url('./static/img/friendIcon" + this.chat.sex + ".png')"
             };
         }
     }
@@ -94,19 +97,19 @@ let chatBubble = {
                 marginRight: this.bubble.id == this.friend ? '0px' : '20px',
             },
             iconBgSwitch: {
-                backgroundImage: "url('./" + (this.bubble.id == this.friend ? 'friendIcon' : 'robotIcon') + (this.bubble.id == this.friend ? this.friendsex : this.robotsex) + ".png')"
+                backgroundImage: "url('./static/img/" + (this.bubble.id == this.friend ? 'friendIcon' : 'robotIcon') + (this.bubble.id == this.friend ? this.friendsex : this.robotsex) + ".png')"
             }
         }
     },
     watch: {
         robotsex() {
             this.iconBgSwitch = {
-                backgroundImage: "url('./" + (this.bubble.id == this.friend ? 'friendIcon' : 'robotIcon') + (this.bubble.id == this.friend ? this.friendsex : this.robotsex) + ".png')"
+                backgroundImage: "url('./static/img/" + (this.bubble.id == this.friend ? 'friendIcon' : 'robotIcon') + (this.bubble.id == this.friend ? this.friendsex : this.robotsex) + ".png')"
             }
         },
         friendsex() {
             this.iconBgSwitch = {
-                backgroundImage: "url('./" + (this.bubble.id == this.friend ? 'friendIcon' : 'robotIcon') + (this.bubble.id == this.friend ? this.friendsex : this.robotsex) + ".png')"
+                backgroundImage: "url('./static/img/" + (this.bubble.id == this.friend ? 'friendIcon' : 'robotIcon') + (this.bubble.id == this.friend ? this.friendsex : this.robotsex) + ".png')"
             }
         }
     }
@@ -155,7 +158,7 @@ let vm = new Vue({
                 secret: this.loginSecret,
                 minId: this.minRobotId,
                 maxId: this.maxRobotId
-            }))
+            }));
         },
         keyupHandler(ev) {
             if (ev.keyCode == 13) {
@@ -171,7 +174,15 @@ let vm = new Vue({
                 this.editContent = "";
                 return;
             }
-            this.curRobot.curChat.chatContent.push(new ChatContent(this.curRobot.id, this.editContent.trim()));
+            let shootChat = this.editContent.trim();
+            this.curRobot.curChat.chatContent.push(new ChatContent(this.curRobot.id, shootChat));
+            this.sendMessage(JSON.stringify({
+                type: Constants.CS_CHAT_MSG,
+                robotId: this.curRobot.id,
+                robotPuid: this.curRobot.puid,
+                friendId: this.curRobot.curChat.friendId,
+                content: shootChat
+            }));
             this.editContent = "";
             Vue.nextTick(() => {
                 let editerDom = document.getElementById('chat-scroll-content');
@@ -194,7 +205,7 @@ let vm = new Vue({
                 alert("浏览器版本太低, 请换个浏览器重新打开.");
                 return;
             }
-            this.websocketConn = new WebSocket('ws://192.168.1.192:10800/websocket');
+            this.websocketConn = new WebSocket('ws://127.0.0.1:8080/websocket');
             this.websocketConn.onopen = ev => {
                 this.connectStatus = "已连接...";
             };
@@ -216,7 +227,7 @@ let vm = new Vue({
         messageHandler(receiveData) {
             let msg = JSON.parse(receiveData);
             console.log('receive msg', receiveData);
-            if (msg.type == Constants.SC_LOGIN) {
+            if (msg.type == Constants.SC_LOGIN) {           // 登录反馈
                 let status = msg.status;
                 if (status == "SUCCESS") {
                     this.connectStatus = "已登录...";
@@ -225,7 +236,7 @@ let vm = new Vue({
                     this.connectStatus = "登录失败...";
                     this.loginSecret="";
                 }
-            } else if (msg.type == Constants.SC_SET_AREA) {
+            } else if (msg.type == Constants.SC_SET_AREA) { // 设置范围反馈
                 let status = msg.status;
                 if (status == "SUCCESS") {
                     this.assembleRobotData(msg.robotData.robot);
@@ -234,8 +245,31 @@ let vm = new Vue({
                     this.minRobotId = 0;
                     this.maxRobotId = 0;
                 }
-            } else if (msg.type == Constants.SC_CHAT_MSG) {
-                
+            } else if (msg.type == Constants.SC_CHAT_MSG) { // 收到消息
+                let newMsg = msg.newChat;
+                let robotId = newMsg.selfId;
+                let robot = this.robotArray.find(va => va.puid === robotId);
+                if (!robot) {
+                    console.log("no such robot data: ", robotId);
+                    return;
+                }
+                let friendId = newMsg.friendId;
+                let friendName = newMsg.friendName;
+                let age = newMsg.age;
+                let sex = newMsg.sex;
+                let chatArr = newMsg.chatContent;
+                let friend = robot.chats.find(va => va.friendId === friendId);
+                if (!friend) {
+                    friend = new RobotChat(friendId, friendName, age, sex);
+                    robot.chats.push(friend);
+                }
+                if (!robot.curChat) {
+                    robot.curChat = friend;
+                }
+                for (let ecc of chatArr) {
+                    let chatC = new ChatContent(ecc.id, ecc.chat)
+                    friend.chatContent.push(chatC);
+                }
             }
         },
         assembleRobotData(robotData) {
@@ -265,7 +299,7 @@ let vm = new Vue({
     computed: {
         robotDetailIcon() {
             return {
-                backgroundImage: "url('./robotIcon" + this.curRobot.sex + ".png')"
+                backgroundImage: "url('./static/img/robotIcon" + this.curRobot.sex + ".png')"
             };
         }
     }
@@ -275,10 +309,9 @@ function strLen(str) {
     let len = 0;
     for (let i = 0; i < str.length; i++) {
         let c = str.charCodeAt(i);
-        if ((c >= 0x0001 && c <= 0x007e) || (0xff60 <= c && c <= 0xff9f)) {
+        if ((c >= 0x0001 && c <= 0x0040) || (c >= 0x005b && c <= 0x007e) || (0xff60 <= c && c <= 0xff9f)) {
             len++;
-        }
-        else {
+        } else {
             len += 2;
         }
     }
@@ -294,10 +327,9 @@ function subStr(str, limitLen) {
         }
         let c = str.charCodeAt(i);
         res += str[i];
-        if ((c >= 0x0001 && c <= 0x007e) || (0xff60 <= c && c <= 0xff9f)) {
+        if ((c >= 0x0001 && c <= 0x0040) || (c >= 0x005b && c <= 0x007e) || (0xff60 <= c && c <= 0xff9f)) {
             len++;
-        }
-        else {
+        } else {
             len += 2;
         }
     }
