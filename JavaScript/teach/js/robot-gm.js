@@ -116,7 +116,7 @@ let vm = new Vue({
         loginSecret: '',
         minRobotId: 0,
         maxRobotId: 0,
-        wsAddress: 'ws://47.98.171.199:10800/websocket',
+        wsAddress: 'ws://127.0.0.1:10800/websocket',
         websocketConn: null,
         connectStatus: ""
     },
