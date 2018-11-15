@@ -94,28 +94,11 @@ let robotChatBar = {
 let chatBubble = {
     props: ['bubble', 'friend', 'robotsex', 'friendsex'],
     template: '#temp-chat-bubble',
-    data() {
-        return {
-            iconSwitch: {
-                float: this.bubble.id == this.friend ? 'left' : 'right',
-                marginLeft: this.bubble.id == this.friend ? '20px' : '0px',
-                marginRight: this.bubble.id == this.friend ? '0px' : '20px',
-            },
-            iconBgSwitch: {
+    computed: {
+        iconBgSwitch() {
+            return {
                 backgroundImage: "url('./static/img/" + (this.bubble.id == this.friend ? 'friendIcon' : 'robotIcon') + (this.bubble.id == this.friend ? this.friendsex : this.robotsex) + ".png')"
-            }
-        }
-    },
-    watch: {
-        robotsex() {
-            this.iconBgSwitch = {
-                backgroundImage: "url('./static/img/" + (this.bubble.id == this.friend ? 'friendIcon' : 'robotIcon') + (this.bubble.id == this.friend ? this.friendsex : this.robotsex) + ".png')"
-            }
-        },
-        friendsex() {
-            this.iconBgSwitch = {
-                backgroundImage: "url('./static/img/" + (this.bubble.id == this.friend ? 'friendIcon' : 'robotIcon') + (this.bubble.id == this.friend ? this.friendsex : this.robotsex) + ".png')"
-            }
+            };
         }
     }
 }
@@ -133,7 +116,7 @@ let vm = new Vue({
         loginSecret: '',
         minRobotId: 0,
         maxRobotId: 0,
-        wsAddress: 'ws://192.168.1.192:10800/websocket',
+        wsAddress: 'ws://47.98.171.199:10800/websocket',
         websocketConn: null,
         connectStatus: ""
     },
@@ -243,7 +226,6 @@ let vm = new Vue({
         },
         messageHandler(receiveData) {
             let msg = JSON.parse(receiveData);
-            console.log('receive msg', receiveData);
             if (msg.type == Constants.SC_LOGIN) {           // 登录反馈
                 let status = msg.status;
                 if (status == "SUCCESS") {
