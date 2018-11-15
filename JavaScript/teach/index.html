@@ -133,7 +133,7 @@
     <template id="temp-chat-bubble">
         <div>
             <div class="bubble-icon" :style="[iconSwitch, iconBgSwitch]"></div>
-            <div :class="{chatbubbleleft: bubble.id == friend, chatbubbleright: bubble.id != friend}">
+            <div :class="{chatbubbleleft: bubble.id == friend, chatbubbleright: bubble.id != friend}" style="white-space: pre-line;">
                 {{bubble.chat}}
             </div>
             <div style="clear: both; width: 100%"></div>

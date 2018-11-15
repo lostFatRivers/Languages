@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8" />
+    <title>Vue html title</title>
+    <link rel="stylesheet" href="../node_modules/bootstrap/dist/css/bootstrap.css">
+    <link rel="stylesheet" href="../node_modules/bootstrap/dist/css/bootstrap-theme.css">
+</head>
+<body>
+    <div id="app">
+        <div style="white-space: pre-line;">
+            {{detail}}
+        </div>
+        <div v-if="detail">
+            Hi v-if
+        </div>
+        <div v-show="detail.length <= 3">
+            Hi v-show
+        </div>
+        <div v-for="(f1, f2, f3, f4, f5) in loopObj" :key="f3">
+            {{f1}} {{f2}} {{f3}} {{f4}} {{f5}}
+        </div>
+        <button :disabled="detail">Hello</button>
+        <textarea name="t1" id="ta1" cols="30" rows="10" v-model="detail">
+
+        </textarea>
+        <div>
+            {{arrFirst}}
+        </div>
+    </div>
+    <script src="../node_modules/vue/dist/vue.js"></script>
+    <script>
+        let vm = new Vue({
+            el: '#app',
+            data: {
+                detail: "",
+                loopObj: {
+                    t1: 1,
+                    t2: "hao",
+                    t3: "sss"
+                },
+                compArray: [['1'], ['2']]
+            },
+            computed: {
+                arrFirst() {
+                    console.log('调用了')
+                    return this.compArray[0][0];
+                }
+            },
+            methods: {
+                pushToArray(val) {
+                    if (!this.detail) {
+                        return;
+                    }
+                    this.loopObj[this.detail] = this.detail;
+                    this.compArray[1].push(this.detail);
+                    this.detail = "";
+                }
+            }
+        });
+    </script>
+</body>
+</html>
