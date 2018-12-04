@@ -1,0 +1,42 @@
+body {
+    background-color: rgb(46, 46, 46);
+}
+
+.chessboard {
+    height: 630px;
+    width: 630px;
+    background-color: navajowhite;
+    margin: 70px auto;
+    position: relative;
+    z-index: 1;
+}
+
+.cube {
+    position: absolute;
+    width: 40px;
+    height: 40px;
+    border-radius:5px;
+    margin: 1px;
+    z-index: 2;
+}
+
+.piece {
+    position: absolute;
+    width: 32px;
+    height: 32px;
+    margin-top: 5px;
+    margin-left: 5px;
+    top: 420px;
+    left: 42px;
+    border-radius:20px;
+    border: 5px solid black;
+    box-shadow: rgb(145, 145, 145) 2px 2px 5px 1px;
+    z-index: 3;
+}
+
+.chesscontrol {
+    height: 50px;
+    width: 630px;
+    margin: 0px auto;
+    color: white;
+}

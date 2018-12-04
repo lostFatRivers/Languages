@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8" />
+    <title>Ludo King</title>
+    <link rel="stylesheet" href="./node_modules/bootstrap/dist/css/bootstrap.css">
+    <link rel="stylesheet" href="./static/css/ludo.css">
+</head>
+<body>
+    <div id="app">
+        <div class="chessboard" v-show="inited">
+            <ludo-piece :color="'blue'"></ludo-piece>
+            <div>
+                <ludo-cube v-for="(grid, key) in gridConfig" :index="key" :cube="grid" :key="key"> </ludo-cube>
+            </div>
+        </div>
+
+        <div class="chesscontrol">
+            <button>扔色子</button>
+            <label for="randomValue">123321</label>
+        </div>
+    </div>    
+
+    <template id="temp-ludo-cube">
+        <div class="cube" :style="gridStyle">
+            {{protected}}
+        </div>
+    </template>
+
+    <template id="temp-piece">
+        <div class="piece" :style="pieceStyle">
+        </div>
+    </template>
+
+    <script src="./node_modules/vue/dist/vue.js"></script>
+    <script src="./node_modules/axios/dist/axios.js"></script>
+    <script src="./static/js/ludoMain.js"></script>
+
+    
+</body>
+</html>
