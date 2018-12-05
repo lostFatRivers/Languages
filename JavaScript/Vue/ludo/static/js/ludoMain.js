@@ -38,16 +38,39 @@ let vm = new Vue({
         gridConfig: {},
         indexMap:{},
         inited: false,
-        group: 1
+        group: 4
     },
     created() {
         axios.get('./static/data/config.json').then(res => {
             // success
+            let translate = {};
+            let translateIds = {};
             for (let eachCube in res.data.chessboardGrid) {
                 let eachGrid = res.data.chessboardGrid[eachCube];
-                this.gridConfig[eachCube] = eachGrid;
-                this.indexMap[eachGrid.id] = eachCube;
+                translate[eachGrid.id] = eachGrid;
+                translateIds[eachCube] = eachGrid.id;
             }
+            let offset = (this.group - 1) * 13;
+            for (let i in translateIds) {
+                let beforeId = translateIds[i];
+                let gridId = -1;
+                if (beforeId > 52) {
+                    let bi = parseInt(beforeId / 100);
+                    gridId = (this.group - 1 + bi) * 100 + beforeId - bi * 100;
+                    if (gridId >= 500) {
+                        gridId -= 400;
+                    }
+                } else {
+                    gridId = beforeId + offset;
+                    if (gridId > (52 - 1)) {
+                        gridId -= 52;
+                    }
+                }
+                let eachGrid = translate[gridId];
+                this.gridConfig[i] = eachGrid;
+                this.indexMap[eachGrid.id] = i;
+            }
+            console.log("========================== init success ==========================")
             this.inited = true;
         }, err => {
             // error
