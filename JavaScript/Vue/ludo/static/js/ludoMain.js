@@ -1,20 +1,24 @@
 let ludoCube = {
     props: ['index', 'cube'],
     template: '#temp-ludo-cube',
+    data() {
+        let y = (this.index - 1) ? parseInt((this.index - 1) / 15) : 0;
+        let x = (this.index - 1) % 15;
+        return {
+            left: 42 * x,
+            top: 42 * y
+        }
+    },
     computed: {
         protected() {
             return this.cube.isProtect ? 'P' : '';
         },
         gridStyle() {
-            let y = (this.index - 1) ? parseInt((this.index - 1) / 15) : 0;
-            let x = (this.index - 1) % 15;
-            let left = 42 * x;
-            let top = 42 * y;
             return {
                 backgroundColor: this.cube.color,
                 border: '1px solid black',
-                left: left + 'px',
-                top: top + 'px',
+                left: this.left + 'px',
+                top: this.top + 'px',
             }
         }
     }
@@ -38,7 +42,7 @@ let vm = new Vue({
         gridConfig: {},
         indexMap:{},
         inited: false,
-        group: 4
+        group: 2
     },
     created() {
         axios.get('./static/data/config.json').then(res => {
