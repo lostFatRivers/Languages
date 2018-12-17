@@ -10,7 +10,7 @@ import json
 #   }
 # }
 
-rootPath = 'E:/fag/head'
+rootPath = 'E:/fag/head/man'
 
 def cachePathName(path, result):
     keyName = path.split('/')[-1]
