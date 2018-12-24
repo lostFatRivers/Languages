@@ -21,10 +21,12 @@ class RoleManager {
 
 	private loadRoleInfo() {
 		let roleInfoStr: string = egret.localStorage.getItem(RoleManager.ROLE_KEY);
-		if (roleInfoStr == null || roleInfoStr == undefined) {
+		console.log("role info string: ", roleInfoStr);
+		if (roleInfoStr == "" || roleInfoStr == null || roleInfoStr == undefined) {
 			this.playerRole = null;
+		} else {
+			this.playerRole = JSON.parse(roleInfoStr);
 		}
-		this.playerRole = JSON.parse(roleInfoStr);
 	}
 	
 	public createRole(name: string, profIndex: number) {

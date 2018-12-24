@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="utf-8"?>
 <e:Skin class="SelectRoleSkin" width="720" height="1280" xmlns:e="http://ns.egret.com/eui" xmlns:w="http://ns.egret.com/wing" >
 	<w:Config id="164fff1a86c" ></w:Config>
-	<e:Image source="selectRoleBackground_png" x="0" y="0" alpha="0.3"/>
+	<e:Image source="selectRoleBackground_png" x="0" y="0" alpha="0.3" scaleX="1" scaleY="1" width="720" height="1280"/>
 	<e:Image source="rightButtom_png" x="120" y="330" width="600" height="600" skewX="180" alpha="0.8"/>
 	<e:Image source="leftBottom_png" x="0" y="660" scaleX="1" scaleY="1" width="620" height="620" alpha="0.8"/>
 	<e:Button id="confirmButton" label="CONFIRM" x="210" y="1033.5" width="300"/>

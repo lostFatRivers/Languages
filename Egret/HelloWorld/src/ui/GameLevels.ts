@@ -54,7 +54,7 @@ class GameLevels extends eui.Component implements eui.UIComponent {
 
 	private initLevels() {
 		let levelIndexStr = egret.localStorage.getItem(GameLevels.LEVEL_KEY);
-		if (levelIndexStr == null || levelIndexStr == undefined) {
+		if (levelIndexStr == "" || levelIndexStr == null || levelIndexStr == undefined) {
 			this.levelIndex = 0;
 			this.updateLevelData();
 		} else {

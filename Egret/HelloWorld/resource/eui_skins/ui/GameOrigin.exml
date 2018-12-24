@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="utf-8"?>
 <e:Skin class="GameOriginSkin" width="720" height="1280" xmlns:e="http://ns.egret.com/eui" xmlns:w="http://ns.egret.com/wing" >
 	<w:Config id="164ff1b3c6b" ></w:Config>
-	<e:Image source="background_png" x="0" y="0" scaleX="1"/>
+	<e:Image source="background_png" x="0" y="0" scaleX="1" scaleY="1" width="720" height="1280"/>
 	<e:Button id="btContinue" label="CONTINUE" x="214" y="930" width="292"/>
 	<e:Button id="btGameStart" label="NEW GAME" x="214" y="930" width="292"/>
 	<e:Button id="btExit" label="EXIT" x="214" y="1050" width="292"/>
