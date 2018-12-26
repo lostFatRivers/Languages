@@ -1,0 +1,8 @@
+<?xml version="1.0" encoding="utf-8"?>
+<e:Skin class="LipstickShootSkin" width="640" height="920" xmlns:e="http://ns.egret.com/eui" xmlns:w="http://ns.egret.com/wing" >
+	<w:Config id="167ea528240" ></w:Config>
+	<e:Group width="640" height="920" x="0" y="0">
+		<e:Image source="shootBg_png" x="0" y="0" width="640" height="920"/>
+		<e:Group id="targetGroup" width="320" height="320" x="320" y="245" anchorOffsetX="160" anchorOffsetY="160"/>
+	</e:Group>
+</e:Skin>

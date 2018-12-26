@@ -17,7 +17,8 @@
 		"bin-debug/ThemeAdapter.js",
 		"bin-debug/logic/common/MyTools.js",
 		"bin-debug/logic/scene/SceneManager.js",
-		"bin-debug/ui/BgGrid.js",
+		"bin-debug/ui/ElementCube.js",
+		"bin-debug/ui/LipstickShoot.js",
 		"bin-debug/ui/Welcome.js"
 	]
 }

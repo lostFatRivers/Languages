@@ -1,5 +1,7 @@
 <?xml version="1.0" encoding="utf-8"?>
-<e:Skin class="WelcomeSkin" width="640" height="1136" xmlns:e="http://ns.egret.com/eui" xmlns:w="http://ns.egret.com/wing" >
+<e:Skin class="WelcomeSkin" width="640" height="1136" xmlns:e="http://ns.egret.com/eui" xmlns:w="http://ns.egret.com/wing" xmlns:tween="egret.tween.*" xmlns:ns1="*" >
+	<w:Declarations>
+	</w:Declarations>
 	<w:Config id="167d5351dfe" ></w:Config>
 	<e:Rect width="640" height="1136" x="0" y="0" fillColor="0xf5f5f5"/>
 	<e:Group id="header" width="100%" height="55" x="0" y="0">
@@ -7,36 +9,12 @@
 		<e:Label id="lableHead" text="拼划算" y="0" fontFamily="Microsoft YaHei" size="21" x="220" width="200" height="55" verticalAlign="middle" textAlign="center" scaleX="1" scaleY="1"/>
 	</e:Group>
 	<e:Group id="body" width="100%" height="1025" x="0" y="55">
-		<e:Rect width="100%" height="42" y="0" fillColor="0xffffff" x="0" scaleX="1" scaleY="1"/>
-		<e:Label text="精选" x="29.67" y="13" textColor="0x000000" fontFamily="Microsoft YaHei" size="18" bold="true"/>
-		<e:Label text="食品" x="123" y="13" textColor="0x000000" fontFamily="Microsoft YaHei" size="16" bold="true"/>
-		<e:Label text="美妆" x="215" y="13" textColor="0x000000" fontFamily="Microsoft YaHei" size="16" bold="true"/>
-		<e:Label text="家居" x="306" y="13" textColor="0x000000" fontFamily="Microsoft YaHei" size="16" bold="true"/>
-		<e:Label text="服饰" x="397" y="13" textColor="0x000000" fontFamily="Microsoft YaHei" size="16" bold="true"/>
-		<e:Label text="鞋包" x="489" y="13" textColor="0x000000" fontFamily="Microsoft YaHei" size="16" bold="true" anchorOffsetY="0" height="16.67"/>
-		<e:Label text="母婴" x="580.33" y="13" textColor="0x000000" fontFamily="Microsoft YaHei" size="16" bold="true"/>
-		<e:Rect width="50" height="4" x="23.6" y="37.88" fillColor="0xff6a29"/>
-		<e:Rect width="100%" height="90" x="0" y="52" fillColor="0xffffff"/>
-		<e:Image source="icon001_png" x="48.17" y="61.85" width="50" height="50"/>
-		<e:Label text="学生专区" x="45.17" y="111.85" textColor="0x000000" size="14" fontFamily="Microsoft YaHei"/>
-		<e:Image source="icon002_png" x="210" y="61.85" width="50" height="50"/>
-		<e:Label text="今日上线" x="207" y="111.85" textColor="0x000000" size="14" fontFamily="Microsoft YaHei"/>
-		<e:Image source="icon003_png" x="371" y="61.85" width="50" height="50"/>
-		<e:Label text="超值爆款" x="368" y="111.85" textColor="0x000000" size="14" fontFamily="Microsoft YaHei"/>
-		<e:Image source="icon004_png" x="532.83" y="61.85" width="50" height="50"/>
-		<e:Label text="全场包邮" x="529.83" y="111.85" textColor="0x000000" size="14" fontFamily="Microsoft YaHei"/>
-		<e:Rect width="100%" height="873" x="0" y="152" fillColor="0xffffff" anchorOffsetY="0"/>
+		<e:Group id="cubeBox" width="600" height="600" x="20" y="90">
+			<e:Rect width="600" height="600" x="0" y="0" ellipseWidth="20" ellipseHeight="20" strokeAlpha="0" scaleX="1" scaleY="1" fillColor="0xf7f7f7"/>
+		</e:Group>
+		<e:Button id="btChangeState" label="Button" x="165" y="920"/>
+		<e:Button id="btSwitchGame" label="切换游戏" x="440" y="920"/>
 	</e:Group>
 	<e:Group id="footer" width="100%" height="56" x="0" y="1136" anchorOffsetY="56">
-		<e:Image source="footer1_png" x="40.67" y="7.84" width="25" height="25"/>
-		<e:Label text="首页" x="43.17" y="37.07" textColor="0x000000" size="10" fontFamily="Microsoft YaHei" bold="true"/>
-		<e:Image source="footer2_png" x="176" y="7.84" width="25" height="25"/>
-		<e:Label text="分类" x="178.5" y="37.07" textColor="0x000000" size="10" fontFamily="Microsoft YaHei" bold="true"/>
-		<e:Image source="footer3_png" x="311" y="7.84" width="25" height="25"/>
-		<e:Label text="发现" x="313.5" y="37.07" textColor="0x000000" size="10" fontFamily="Microsoft YaHei" bold="true"/>
-		<e:Image source="footer4_png" x="446" y="7.84" width="25" height="25" rotation="0.96"/>
-		<e:Label text="我的" x="582.83" y="37.07" textColor="0x000000" size="10" fontFamily="Microsoft YaHei" bold="true"/>
-		<e:Image source="footer5_png" x="580.33" y="7.84" width="25" height="25"/>
-		<e:Label text="购物车" x="443.29" y="37.07" textColor="0x000000" size="10" fontFamily="Microsoft YaHei" bold="true"/>
 	</e:Group>
 </e:Skin>

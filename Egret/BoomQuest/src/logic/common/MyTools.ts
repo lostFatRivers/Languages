@@ -1,7 +1,7 @@
 class MyTools {
 
     /**
-     * 给 DisplayObject 添加跟随鼠标移动;
+     * 给 DisplayObject 添加鼠标拖拽移动;
      */
     public static addTouchMoveListener(disObj: egret.DisplayObject) {
         if (!disObj.parent) {

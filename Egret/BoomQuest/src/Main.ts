@@ -8,13 +8,14 @@ class Main extends eui.UILayer {
             // custom lifecycle plugin
         })
 
-        egret.lifecycle.onPause = () => {
-            egret.ticker.pause();
-        }
+        // 压入后台时, 暂停所有
+        // egret.lifecycle.onPause = () => {
+        //     egret.ticker.pause();
+        // }
 
-        egret.lifecycle.onResume = () => {
-            egret.ticker.resume();
-        }
+        // egret.lifecycle.onResume = () => {
+        //     egret.ticker.resume();
+        // }
 
         //inject the custom material parser
         //注入自定义的素材解析器
