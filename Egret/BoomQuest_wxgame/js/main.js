@@ -451,6 +451,139 @@ var ElementCube = (function (_super) {
     return ElementCube;
 }(eui.Component));
 __reflect(ElementCube.prototype, "ElementCube", ["eui.UIComponent", "egret.DisplayObject"]);
+var LipstickShoot = (function (_super) {
+    __extends(LipstickShoot, _super);
+    function LipstickShoot() {
+        var _this = _super.call(this) || this;
+        _this.inFly = false;
+        _this._knifeRotaArray = [];
+        return _this;
+    }
+    LipstickShoot.prototype.partAdded = function (partName, instance) {
+        _super.prototype.partAdded.call(this, partName, instance);
+    };
+    LipstickShoot.prototype.childrenCreated = function () {
+        _super.prototype.childrenCreated.call(this);
+        this.initShootTarget();
+    };
+    LipstickShoot.prototype.initShootTarget = function () {
+        var target = new egret.Bitmap();
+        target.texture = RES.getRes("bigCircle_png");
+        target.width = LipstickShoot.CONS.circleRadius;
+        target.height = LipstickShoot.CONS.circleRadius;
+        target.x = 0;
+        target.y = 0;
+        this.targetGroup.addChild(target);
+        this.randomTarget();
+        var knife = this.createKnife();
+        this.knifeGroup.addChildAt(knife, 1);
+        this.addShootEventListener(knife);
+    };
+    LipstickShoot.prototype.randomTarget = function () {
+        var _this = this;
+        var randAngle = Math.ceil(Math.random() * LipstickShoot.CONS.randAngleBase) + LipstickShoot.CONS.randAngleFloor;
+        if (Math.random() > 0.5) {
+            randAngle = 0 - randAngle;
+        }
+        var randTime = Math.ceil(Math.random() * LipstickShoot.CONS.randTimeBase) + LipstickShoot.CONS.randTimeFloor;
+        this._runTween = egret.Tween.get(this.targetGroup).to({ rotation: randAngle }, randTime, egret.Ease.quadIn).call(function () { return _this.randomTarget(); });
+    };
+    LipstickShoot.prototype.addShootEventListener = function (knife) {
+        var _this = this;
+        this.addEventListener(egret.TouchEvent.TOUCH_TAP, function (ev) {
+            if (_this.inFly) {
+                return;
+            }
+            _this.inFly = true;
+            var nk = _this.createKnife();
+            _this.knifeGroup.addChildAt(nk, 1);
+            knife.visible = false;
+            egret.Tween.get(nk).to({ y: LipstickShoot.CONS.knifeTargetY }, LipstickShoot.CONS.knifeFlyTime, egret.Ease.cubicIn).call(function () {
+                knife.visible = true;
+                _this.inFly = false;
+                var rota = _this.transRota(_this.targetGroup.rotation);
+                var isLossed = false;
+                for (var i = -8; i <= 8; i++) {
+                    var rangeRota = rota + i;
+                    if (rangeRota < 0) {
+                        rangeRota += 360;
+                    }
+                    if (rangeRota >= 360) {
+                        rangeRota -= 360;
+                    }
+                    if (_this._knifeRotaArray.indexOf(rangeRota) >= 0) {
+                        console.log("have rota:", rota);
+                        isLossed = true;
+                        break;
+                    }
+                }
+                if (isLossed) {
+                    egret.Tween.get(nk).to({ x: 120, y: LipstickShoot.CONS.knifeTargetY + 220, rotation: 136 }, LipstickShoot.CONS.knifeFlyTime, egret.Ease.bounceIn);
+                }
+                else {
+                    console.log("no before rota:", rota);
+                    _this._knifeRotaArray.push(rota);
+                    _this.knifeGroup.removeChild(nk);
+                    var radian = rota * 2 * Math.PI / LipstickShoot.CONS.fullAngle;
+                    var line = LipstickShoot.CONS.knifeTargetY - LipstickShoot.CONS.circleCenterY;
+                    var x = LipstickShoot.CONS.circleRadius / 2 + Math.floor(line * Math.sin(radian));
+                    var y = LipstickShoot.CONS.circleRadius / 2 + Math.floor(line * Math.cos(radian));
+                    nk.x = x;
+                    nk.y = y;
+                    nk.rotation = 0 - _this.targetGroup.rotation;
+                    _this.targetGroup.addChildAt(nk, 0);
+                }
+            });
+        }, this);
+    };
+    LipstickShoot.prototype.transRota = function (rotation) {
+        var rota = Math.floor(rotation);
+        if (rota < 0) {
+            rota += LipstickShoot.CONS.fullAngle;
+        }
+        return rota;
+    };
+    LipstickShoot.prototype.createKnife = function () {
+        var knife = new egret.Bitmap();
+        knife.texture = RES.getRes("knife_png");
+        knife.width = LipstickShoot.CONS.knifeWidth;
+        knife.height = LipstickShoot.CONS.knifeHeight;
+        knife.x = LipstickShoot.CONS.knifeX;
+        knife.y = LipstickShoot.CONS.knifeY;
+        knife.anchorOffsetX = LipstickShoot.CONS.knifeWidth / 2;
+        return knife;
+    };
+    LipstickShoot._radius = 105;
+    /** 常量 */
+    LipstickShoot.CONS = {
+        /** 圆桶直径 */
+        circleRadius: 300,
+        /** 圆中心点y值 */
+        circleCenterY: 315,
+        /** 随机角度底数 */
+        randAngleBase: 360,
+        /** 随机角度最小值 */
+        randAngleFloor: 120,
+        /** 随机时间底数 */
+        randTimeBase: 2500,
+        /** 随机时间最小值 */
+        randTimeFloor: 600,
+        /** 飞刀终点y值 */
+        knifeTargetY: 420,
+        /** 飞刀飞行时间 */
+        knifeFlyTime: 150,
+        /** 圆周角 */
+        fullAngle: 360,
+        /** 飞刀宽度 */
+        knifeWidth: 50,
+        /** 飞刀长度 */
+        knifeHeight: 120,
+        knifeX: 320,
+        knifeY: 670,
+    };
+    return LipstickShoot;
+}(eui.Component));
+__reflect(LipstickShoot.prototype, "LipstickShoot", ["eui.UIComponent", "egret.DisplayObject"]);
 var Welcome = (function (_super) {
     __extends(Welcome, _super);
     function Welcome() {
@@ -477,8 +610,8 @@ var Welcome = (function (_super) {
         person.texture = RES.getRes("p0" + 1 + "_png");
         person.width *= 2;
         person.height *= 2;
-        person.x = 320 - person.width / 2;
-        person.y = 900 - person.height / 2;
+        person.x = 70;
+        person.y = 930;
         // 添加人物动画
         var picIndex = 1;
         var personRun = function (ts) {
@@ -510,6 +643,18 @@ var Welcome = (function (_super) {
         }, this);
         egret.startTick(personRun, this);
         this.addChild(person);
+        this.btSwitchGame.addEventListener(egret.TouchEvent.TOUCH_TAP, function (ev) {
+            if (_this._lipst == undefined) {
+                _this._lipst = new LipstickShoot();
+                _this._lipst.x = 0;
+                _this._lipst.y = 0;
+                _this.addChild(_this._lipst);
+            }
+            else {
+                _this.removeChild(_this._lipst);
+                _this._lipst = undefined;
+            }
+        }, this);
     };
     Welcome.prototype.initCubeBox = function () {
         var size = Welcome.CUBE_BOX_SIZE;
@@ -544,11 +689,9 @@ var Welcome = (function (_super) {
         return cube;
     };
     Welcome.prototype.onCubeClicked = function (cube) {
-        console.log("click cube (", cube.cx, ",", cube.cy, ")");
         var destroyArray = [];
         this.findAllDestroy(cube, destroyArray);
         if (destroyArray.length <= 1) {
-            console.log("cannot destroy.");
             return;
         }
         var colMap = {};
@@ -565,7 +708,6 @@ var Welcome = (function (_super) {
             }
             xObj.num += 1;
         }
-        console.log(colMap);
         for (var cx in colMap) {
             var xObj = colMap[cx];
             this.onCubeDestroy(parseInt(cx), xObj);
@@ -583,7 +725,6 @@ var Welcome = (function (_super) {
         arr.push(cube);
         var cx = cube.cx;
         var cy = cube.cy;
-        console.log("destroy cube (" + cx + ", " + cy + ")");
         // left
         var leftCx = cx - 1;
         if (leftCx >= 0) {

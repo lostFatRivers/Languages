@@ -5,6 +5,8 @@ class Welcome extends eui.Component implements  eui.UIComponent {
 	public cubeBox: eui.Group;
 	public btSwitchGame: eui.Button;
 
+	private _lipst: LipstickShoot;
+
 	public static CUBE_BOX_SIZE = 8;
 	public static CUBE_LENGTH = 75;
 	public static CUBE_TYPE_SIZE = 6;
@@ -75,16 +77,22 @@ class Welcome extends eui.Component implements  eui.UIComponent {
 
 		this.addChild(person);
 
-		let lipst: LipstickShoot = new LipstickShoot();
-		lipst.x = 0;
-		lipst.y = 0;
+		
 		this.btSwitchGame.addEventListener(egret.TouchEvent.TOUCH_TAP, ev => {
-			if (this.getChildIndex(lipst) < 0) {
-				this.addChild(lipst);
+			if (this._lipst == undefined) {
+				this._lipst = new LipstickShoot(1, 6);
+				this._lipst.x = 0;
+				this._lipst.y = 0;
+				this.addChild(this._lipst);
 			} else {
-				this.removeChild(lipst);
+				this.removeChild(this._lipst);
+				this._lipst = undefined;
 			}
 		}, this);
+	}
+
+	public setLipst(newLips: LipstickShoot) {
+		this._lipst = newLips;
 	}
 
 	private initCubeBox() {

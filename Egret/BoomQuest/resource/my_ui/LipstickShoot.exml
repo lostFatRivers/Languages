@@ -5,6 +5,6 @@
 		<e:Image source="shootBg_png" x="0" y="0" width="640" height="920" rotation="0"/>
 		<e:Group id="knifeGroup" width="640" height="920" x="0" y="0">
 		</e:Group>
-		<e:Group id="targetGroup" width="300" height="300" x="320" y="265" anchorOffsetX="150" anchorOffsetY="150"/>
+		<e:Group id="targetGroup" width="300" height="300" x="320" y="315" anchorOffsetX="150" anchorOffsetY="150"/>
 	</e:Group>
 </e:Skin>

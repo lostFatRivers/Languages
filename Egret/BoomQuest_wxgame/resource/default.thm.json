@@ -14,7 +14,8 @@
 		"eui.VSlider": "resource/eui_skins/VSliderSkin.exml",
 		"eui.ItemRenderer": "resource/eui_skins/ItemRendererSkin.exml",
 		"Welcome": "resource/my_ui/Welcome.exml",
-		"ElementCube": "resource/my_ui/ElementCube.exml"
+		"ElementCube": "resource/my_ui/ElementCube.exml",
+		"LipstickShoot": "resource/my_ui/LipstickShoot.exml"
 	},
 	"autoGenerateExmlsList": true,
 	"exmls": [
@@ -32,6 +33,7 @@
 		"resource/eui_skins/VScrollBarSkin.exml",
 		"resource/eui_skins/VSliderSkin.exml",
 		"resource/my_ui/ElementCube.exml",
+		"resource/my_ui/LipstickShoot.exml",
 		"resource/my_ui/Welcome.exml"
 	],
 	"path": "resource/default.thm.json"

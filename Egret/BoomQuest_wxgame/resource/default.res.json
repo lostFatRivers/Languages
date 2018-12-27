@@ -1,7 +1,7 @@
 {
 	"groups": [
 		{
-			"keys": "checkbox_select_disabled_png,checkbox_select_down_png,checkbox_select_up_png,checkbox_unselect_png,selected_png,border_png,header_png,radiobutton_select_disabled_png,radiobutton_select_down_png,radiobutton_select_up_png,radiobutton_unselect_png,roundthumb_png,thumb_png,track_png,tracklight_png,handle_png,off_png,on_png,button_down_png,button_up_png,thumb_pb_png,track_pb_png,track_sb_png,description_json,footer1_png,footer2_png,footer3_png,footer4_png,footer5_png,icon001_png,icon002_png,icon003_png,icon004_png,p04_png,p01_png,p02_png,p03_png,img_Cube2_png,img_Cube3_png,img_Cube4_png,img_Cube5_png,img_Cube6_png,img_Cube1_png",
+			"keys": "checkbox_select_disabled_png,checkbox_select_down_png,checkbox_select_up_png,checkbox_unselect_png,selected_png,border_png,header_png,radiobutton_select_disabled_png,radiobutton_select_down_png,radiobutton_select_up_png,radiobutton_unselect_png,roundthumb_png,thumb_png,track_png,tracklight_png,handle_png,off_png,on_png,button_down_png,button_up_png,thumb_pb_png,track_pb_png,track_sb_png,description_json,footer1_png,footer2_png,footer3_png,footer4_png,footer5_png,icon001_png,icon002_png,icon003_png,icon004_png,p04_png,p01_png,p02_png,p03_png,img_Cube2_png,img_Cube3_png,img_Cube4_png,img_Cube5_png,img_Cube6_png,img_Cube1_png,shootBg_png,knife_png,bigCircle_png",
 			"name": "preload"
 		}
 	],
@@ -220,6 +220,21 @@
 			"name": "img_Cube1_png",
 			"type": "image",
 			"url": "assets/MyPic/element/img_Cube1.png"
+		},
+		{
+			"name": "shootBg_png",
+			"type": "image",
+			"url": "assets/MyPic/shoot/shootBg.png"
+		},
+		{
+			"name": "knife_png",
+			"type": "image",
+			"url": "assets/MyPic/shoot/knife.png"
+		},
+		{
+			"name": "bigCircle_png",
+			"type": "image",
+			"url": "assets/MyPic/shoot/bigCircle.png"
 		}
 	]
 }

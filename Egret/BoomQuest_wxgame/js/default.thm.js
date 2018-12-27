@@ -10,7 +10,7 @@ var egret = window.egret;window.skins={};
                 window.generateEUI = {};
                 generateEUI.paths = {};
                 generateEUI.styles = undefined;
-                generateEUI.skins = {"eui.Button":"resource/eui_skins/ButtonSkin.exml","eui.CheckBox":"resource/eui_skins/CheckBoxSkin.exml","eui.HScrollBar":"resource/eui_skins/HScrollBarSkin.exml","eui.HSlider":"resource/eui_skins/HSliderSkin.exml","eui.Panel":"resource/eui_skins/PanelSkin.exml","eui.TextInput":"resource/eui_skins/TextInputSkin.exml","eui.ProgressBar":"resource/eui_skins/ProgressBarSkin.exml","eui.RadioButton":"resource/eui_skins/RadioButtonSkin.exml","eui.Scroller":"resource/eui_skins/ScrollerSkin.exml","eui.ToggleSwitch":"resource/eui_skins/ToggleSwitchSkin.exml","eui.VScrollBar":"resource/eui_skins/VScrollBarSkin.exml","eui.VSlider":"resource/eui_skins/VSliderSkin.exml","eui.ItemRenderer":"resource/eui_skins/ItemRendererSkin.exml","Welcome":"resource/my_ui/Welcome.exml","ElementCube":"resource/my_ui/ElementCube.exml"};generateEUI.paths['resource/eui_skins/ButtonSkin.exml'] = window.skins.ButtonSkin = (function (_super) {
+                generateEUI.skins = {"eui.Button":"resource/eui_skins/ButtonSkin.exml","eui.CheckBox":"resource/eui_skins/CheckBoxSkin.exml","eui.HScrollBar":"resource/eui_skins/HScrollBarSkin.exml","eui.HSlider":"resource/eui_skins/HSliderSkin.exml","eui.Panel":"resource/eui_skins/PanelSkin.exml","eui.TextInput":"resource/eui_skins/TextInputSkin.exml","eui.ProgressBar":"resource/eui_skins/ProgressBarSkin.exml","eui.RadioButton":"resource/eui_skins/RadioButtonSkin.exml","eui.Scroller":"resource/eui_skins/ScrollerSkin.exml","eui.ToggleSwitch":"resource/eui_skins/ToggleSwitchSkin.exml","eui.VScrollBar":"resource/eui_skins/VScrollBarSkin.exml","eui.VSlider":"resource/eui_skins/VSliderSkin.exml","eui.ItemRenderer":"resource/eui_skins/ItemRendererSkin.exml","Welcome":"resource/my_ui/Welcome.exml","ElementCube":"resource/my_ui/ElementCube.exml","LipstickShoot":"resource/my_ui/LipstickShoot.exml"};generateEUI.paths['resource/eui_skins/ButtonSkin.exml'] = window.skins.ButtonSkin = (function (_super) {
 	__extends(ButtonSkin, _super);
 	function ButtonSkin() {
 		_super.call(this);
@@ -655,11 +655,63 @@ var egret = window.egret;window.skins={};
 		return t;
 	};
 	return ElementCubeSkin;
+})(eui.Skin);generateEUI.paths['resource/my_ui/LipstickShoot.exml'] = window.LipstickShootSkin = (function (_super) {
+	__extends(LipstickShootSkin, _super);
+	function LipstickShootSkin() {
+		_super.call(this);
+		this.skinParts = ["knifeGroup","targetGroup"];
+		
+		this.height = 920;
+		this.width = 640;
+		this.elementsContent = [this._Group1_i()];
+	}
+	var _proto = LipstickShootSkin.prototype;
+
+	_proto._Group1_i = function () {
+		var t = new eui.Group();
+		t.height = 920;
+		t.width = 640;
+		t.x = 0;
+		t.y = 0;
+		t.elementsContent = [this._Image1_i(),this.knifeGroup_i(),this.targetGroup_i()];
+		return t;
+	};
+	_proto._Image1_i = function () {
+		var t = new eui.Image();
+		t.height = 920;
+		t.rotation = 0;
+		t.source = "shootBg_png";
+		t.width = 640;
+		t.x = 0;
+		t.y = 0;
+		return t;
+	};
+	_proto.knifeGroup_i = function () {
+		var t = new eui.Group();
+		this.knifeGroup = t;
+		t.height = 920;
+		t.width = 640;
+		t.x = 0;
+		t.y = 0;
+		return t;
+	};
+	_proto.targetGroup_i = function () {
+		var t = new eui.Group();
+		this.targetGroup = t;
+		t.anchorOffsetX = 150;
+		t.anchorOffsetY = 150;
+		t.height = 300;
+		t.width = 300;
+		t.x = 320;
+		t.y = 315;
+		return t;
+	};
+	return LipstickShootSkin;
 })(eui.Skin);generateEUI.paths['resource/my_ui/Welcome.exml'] = window.WelcomeSkin = (function (_super) {
 	__extends(WelcomeSkin, _super);
 	function WelcomeSkin() {
 		_super.call(this);
-		this.skinParts = ["lableHead","header","cubeBox","btChangeState","body","footer"];
+		this.skinParts = ["lableHead","header","cubeBox","btChangeState","btSwitchGame","body","footer"];
 		
 		this.height = 1136;
 		this.width = 640;
@@ -720,7 +772,7 @@ var egret = window.egret;window.skins={};
 		t.percentWidth = 100;
 		t.x = 0;
 		t.y = 55;
-		t.elementsContent = [this.cubeBox_i(),this.btChangeState_i()];
+		t.elementsContent = [this.cubeBox_i(),this.btChangeState_i(),this.btSwitchGame_i()];
 		return t;
 	};
 	_proto.cubeBox_i = function () {
@@ -751,7 +803,15 @@ var egret = window.egret;window.skins={};
 		var t = new eui.Button();
 		this.btChangeState = t;
 		t.label = "Button";
-		t.x = 270;
+		t.x = 165;
+		t.y = 920;
+		return t;
+	};
+	_proto.btSwitchGame_i = function () {
+		var t = new eui.Button();
+		this.btSwitchGame = t;
+		t.label = "切换游戏";
+		t.x = 440;
 		t.y = 920;
 		return t;
 	};
