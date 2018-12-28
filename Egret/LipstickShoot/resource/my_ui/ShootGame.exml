@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="utf-8"?>
+<e:Skin class="ShootGameSkin" width="640" height="1136" xmlns:e="http://ns.egret.com/eui" xmlns:w="http://ns.egret.com/wing" >
+	<w:Config id="167f2ac2f09" ></w:Config>
+	<e:Group width="640" height="1136" x="0" y="0">
+		<e:Image width="640" height="1136" x="0" y="0" source="shootBg_png"/>
+		<e:Group id="knifeGroup" width="640" height="1136" x="0" y="0">
+			<e:Label id="laLastTime" text="30" x="490" y="920" size="76"/>
+		</e:Group>
+		<e:Group id="targetGroup" width="300" height="300" x="320" y="420" anchorOffsetX="150" anchorOffsetY="150"/>
+	</e:Group>
+</e:Skin>

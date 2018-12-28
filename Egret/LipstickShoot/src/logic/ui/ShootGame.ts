@@ -1,7 +1,8 @@
-class LipstickShoot extends eui.Component implements  eui.UIComponent {
+class ShootGame extends eui.Component implements  eui.UIComponent {
+	public knifeGroup: eui.Group;
+	public targetGroup: eui.Group;
+	public laLastTime: eui.Label;
 
-    public targetGroup: eui.Group;
-    public knifeGroup: eui.Group;
     private _knife: egret.Bitmap;
 
     private inFly: boolean = false;
@@ -16,12 +17,15 @@ class LipstickShoot extends eui.Component implements  eui.UIComponent {
     public level: number;
     public task: number;
 
+	private _startTime: number = 0;
+	private _lastTime: number;
+
 	/** 常量 */
 	private static CONS = {
 		/** 圆桶直径 */
 		circleRadius: 300,
 		/** 圆中心点y值 */
-		circleCenterY: 315,
+		circleCenterY: 420,
 		/** 随机角度底数 */
 		randAngleBase: 360,
 		/** 随机角度最小值 */
@@ -31,7 +35,7 @@ class LipstickShoot extends eui.Component implements  eui.UIComponent {
 		/** 随机时间最小值 */
 		randTimeFloor: 600,
 		/** 飞刀终点y值 */
-		knifeTargetY: 420,
+		knifeTargetY: 530,
 		/** 飞刀飞行时间 */
 		knifeFlyTime: 110,
 		/** 圆周角 */
@@ -41,13 +45,18 @@ class LipstickShoot extends eui.Component implements  eui.UIComponent {
 		/** 飞刀长度 */
 		knifeHeight: 120,
 		knifeX: 320,
-		knifeY: 670,
+		knifeY: 870,
+
+		/** 关卡lable位置Y */
+		levelLableY: 60,
+
 	}
 
     public constructor(level: number, task: number) {
         super();
         this.level = level;
         this.task = task;
+		this._lastTime = 35;
     }
 
     protected partAdded(partName:string,instance:any):void {
@@ -63,8 +72,8 @@ class LipstickShoot extends eui.Component implements  eui.UIComponent {
     private initShootTarget() {
         let target: egret.Bitmap = new egret.Bitmap();
         target.texture = RES.getRes("bigCircle_png");
-        target.width = LipstickShoot.CONS.circleRadius; 
-        target.height = LipstickShoot.CONS.circleRadius;
+        target.width = ShootGame.CONS.circleRadius; 
+        target.height = ShootGame.CONS.circleRadius;
         target.x = 0;
         target.y = 0;
 
@@ -82,9 +91,8 @@ class LipstickShoot extends eui.Component implements  eui.UIComponent {
         }
 
         let lab1 = this.createLable(`第 ${this.level} 关`);
-        lab1.y = 40;
+        lab1.y = ShootGame.CONS.levelLableY;
         this.addChild(lab1);
-
     }
     
     private randomTarget() {
@@ -92,9 +100,28 @@ class LipstickShoot extends eui.Component implements  eui.UIComponent {
         this._runTimer.addEventListener(egret.TimerEvent.TIMER, ev => {
             let old = this.targetGroup.rotation;
             this.targetGroup.rotation = old + this._rotaInterval;
+			this.timeLimitTick();
         }, this); 
         this._runTimer.start();
     }
+
+	private timeLimitTick() {
+		if (this._startTime == 0) {
+			this._startTime = egret.getTimer();
+			this.laLastTime.text = this._lastTime.toString();
+			return;
+		}
+		if (this._lastTime <= 0) {
+			this.newGameNotice();
+			return;
+		}
+		let passTime = Math.floor((egret.getTimer() - this._startTime) / 1000);
+		if (passTime >= 1) {
+			this._startTime = egret.getTimer();
+			this._lastTime = this._lastTime - 1;
+			this.laLastTime.text = this._lastTime.toString();
+		}
+	}
 
     private addShootEventListener() {
         this.addEventListener(egret.TouchEvent.TOUCH_TAP, this.touchEventHandler, this);
@@ -109,7 +136,7 @@ class LipstickShoot extends eui.Component implements  eui.UIComponent {
         this.knifeGroup.addChildAt(nk, 1);
         this._knife.visible = false;
 
-        egret.Tween.get(nk).to({y: LipstickShoot.CONS.knifeTargetY}, LipstickShoot.CONS.knifeFlyTime, egret.Ease.cubicIn).call(() => {
+        egret.Tween.get(nk).to({y: ShootGame.CONS.knifeTargetY}, ShootGame.CONS.knifeFlyTime, egret.Ease.cubicIn).call(() => {
             this._knife.visible = true;
             this.inFly = false;
 
@@ -130,10 +157,10 @@ class LipstickShoot extends eui.Component implements  eui.UIComponent {
                 
                 this.knifeGroup.removeChild(nk);
 
-                let radian = rota * 2 * Math.PI / LipstickShoot.CONS.fullAngle;
-                let line = LipstickShoot.CONS.knifeTargetY - LipstickShoot.CONS.circleCenterY;
-                let x = LipstickShoot.CONS.circleRadius / 2 + Math.floor(line * Math.sin(radian));
-                let y = LipstickShoot.CONS.circleRadius / 2 + Math.floor(line * Math.cos(radian));
+                let radian = rota * 2 * Math.PI / ShootGame.CONS.fullAngle;
+                let line = ShootGame.CONS.knifeTargetY - ShootGame.CONS.circleCenterY;
+                let x = ShootGame.CONS.circleRadius / 2 + Math.floor(line * Math.sin(radian));
+                let y = ShootGame.CONS.circleRadius / 2 + Math.floor(line * Math.cos(radian));
                 nk.x = x;
                 nk.y = y;
                 nk.rotation = 0 - this.targetGroup.rotation;
@@ -165,13 +192,12 @@ class LipstickShoot extends eui.Component implements  eui.UIComponent {
         this.addChild(lab1);
         let btn1 = this.createButton("下一关");
         btn1.addEventListener(egret.TouchEvent.TOUCH_TAP, ev => {
-            let parent = <Welcome>this.parent;
+            let parent = this.parent;
             if (parent) {
-                let lipst = new LipstickShoot(this.level + 1, this.task + 5);
+                let lipst = new ShootGame(this.level + 1, this.task + 5);
                 lipst.x = 0;
 				lipst.y = 0;
                 parent.addChild(lipst);
-                parent.setLipst(lipst);
                 parent.removeChild(this);
             }
         }, this);
@@ -203,13 +229,12 @@ class LipstickShoot extends eui.Component implements  eui.UIComponent {
         this.addChild(lab1);
         let btn1 = this.createButton("重新开始");
         btn1.addEventListener(egret.TouchEvent.TOUCH_TAP, ev => {
-            let parent = <Welcome>this.parent;
+            let parent = this.parent;
             if (parent) {
-                let lipst = new LipstickShoot(1, 6);
+                let lipst = new ShootGame(1, 6);
                 lipst.x = 0;
 				lipst.y = 0;
                 parent.addChild(lipst);
-                parent.setLipst(lipst);
                 parent.removeChild(this);
             }
         }, this);
@@ -221,8 +246,8 @@ class LipstickShoot extends eui.Component implements  eui.UIComponent {
         btn1.label = text;
         btn1.width = 140;
         btn1.height = 80;
-        btn1.x = LipstickShoot.CONS.knifeX;
-        btn1.y = LipstickShoot.CONS.knifeY - 30;
+        btn1.x = ShootGame.CONS.knifeX;
+        btn1.y = ShootGame.CONS.knifeY - 30;
         btn1.anchorOffsetX = 70;
         btn1.anchorOffsetY = 50;
         return btn1;
@@ -235,7 +260,7 @@ class LipstickShoot extends eui.Component implements  eui.UIComponent {
         lab1.size = 50;
         lab1.fontFamily = "Microsoft YaHei";
         lab1.text = text;
-        lab1.x = LipstickShoot.CONS.knifeX;
+        lab1.x = ShootGame.CONS.knifeX;
         lab1.y = 400;
         lab1.strokeColor = 0x0000ff;   //描边颜色
         lab1.stroke = 2;               //描边宽度
@@ -255,7 +280,7 @@ class LipstickShoot extends eui.Component implements  eui.UIComponent {
     private transRota(rotation: number): number {
         let rota = Math.floor(rotation);
         if (rota < 0) {
-            rota += LipstickShoot.CONS.fullAngle;
+            rota += ShootGame.CONS.fullAngle;
         }
         return rota;
     }
@@ -263,22 +288,22 @@ class LipstickShoot extends eui.Component implements  eui.UIComponent {
     private createKnife(): egret.Bitmap {
         let knife: egret.Bitmap = new egret.Bitmap();
         knife.texture = RES.getRes("knife_png");
-        knife.width = LipstickShoot.CONS.knifeWidth; 
-        knife.height = LipstickShoot.CONS.knifeHeight;
-        knife.x = LipstickShoot.CONS.knifeX;
-        knife.y = LipstickShoot.CONS.knifeY;
-        knife.anchorOffsetX = LipstickShoot.CONS.knifeWidth / 2;
+        knife.width = ShootGame.CONS.knifeWidth; 
+        knife.height = ShootGame.CONS.knifeHeight;
+        knife.x = ShootGame.CONS.knifeX;
+        knife.y = ShootGame.CONS.knifeY;
+        knife.anchorOffsetX = ShootGame.CONS.knifeWidth / 2;
         return knife;
     }
 
     private createBull(index: number): egret.Bitmap {
         let knife: egret.Bitmap = new egret.Bitmap();
         knife.texture = RES.getRes("knife_png");
-        knife.width = LipstickShoot.CONS.knifeWidth / 2; 
-        knife.height = LipstickShoot.CONS.knifeHeight / 2;
+        knife.width = ShootGame.CONS.knifeWidth / 2; 
+        knife.height = ShootGame.CONS.knifeHeight / 2;
         knife.rotation = 60;
         knife.x = 100;
-        knife.y = 740 - 35 * index;
+        knife.y = ShootGame.CONS.knifeY + 50 - 35 * index;
         return knife;
     }
 }
