@@ -10,6 +10,8 @@ declare interface Platform {
 
     login(): Promise<any>
 
+    result(value: number): Promise<any>
+
 }
 
 class DebugPlatform implements Platform {
@@ -18,6 +20,9 @@ class DebugPlatform implements Platform {
     }
     async login() {
 
+    }
+    async result(value: number) {
+        console.log(value);
     }
 }
 

@@ -67,7 +67,8 @@ class Main extends eui.UILayer {
      */
     protected createGameScene(): void {
         SceneManager.getInstance().setRootStage(this);
-        SceneManager.getInstance().toWelcomeScene();
+        //SceneManager.getInstance().toWelcomeScene();
+        SceneManager.getInstance().toMatchThreeScene();
     }
 
     /**

@@ -21,7 +21,7 @@ class ShootGame extends eui.Component implements  eui.UIComponent {
 	private _lastTime: number;
 
 	/** 常量 */
-	private static CONS = {
+	public static CONS = {
 		/** 圆桶直径 */
 		circleRadius: 300,
 		/** 圆中心点y值 */
@@ -41,11 +41,11 @@ class ShootGame extends eui.Component implements  eui.UIComponent {
 		/** 圆周角 */
 		fullAngle: 360,
 		/** 飞刀宽度 */
-		knifeWidth: 60,
+		knifeWidth: 42,
 		/** 飞刀长度 */
-		knifeHeight: 120,
+		knifeHeight: 170,
 		knifeX: 320,
-		knifeY: 870,
+		knifeY: 810,
 
 		/** 关卡lable位置Y */
 		levelLableY: 60,
@@ -190,18 +190,19 @@ class ShootGame extends eui.Component implements  eui.UIComponent {
         this.removeEventListener(egret.TouchEvent.TOUCH_TAP, this.touchEventHandler, this);
         let lab1 = this.createLable(`闯关成功`);
         this.addChild(lab1);
-        let btn1 = this.createButton("下一关");
-        btn1.addEventListener(egret.TouchEvent.TOUCH_TAP, ev => {
-            let parent = this.parent;
-            if (parent) {
-                let lipst = new ShootGame(this.level + 1, this.task + 5);
-                lipst.x = 0;
-				lipst.y = 0;
-                parent.addChild(lipst);
-                parent.removeChild(this);
-            }
-        }, this);
-        this.addChild(btn1);
+        if (this.level == 3) {
+            let btn1 = this.createButton("获得奖励");
+            btn1.addEventListener(egret.TouchEvent.TOUCH_TAP, ev => {
+                SceneManager.getInstance().setGameResult(1);
+            }, this);
+            this.addChild(btn1);
+        } else {
+            let btn1 = this.createButton("下一关");
+            btn1.addEventListener(egret.TouchEvent.TOUCH_TAP, ev => {
+                SceneManager.getInstance().toGameScene(this.level + 1, this.task + 3);
+            }, this);
+            this.addChild(btn1);
+        }
     }
 
     private checkLose(rota: number): boolean {
@@ -227,16 +228,9 @@ class ShootGame extends eui.Component implements  eui.UIComponent {
         this.removeEventListener(egret.TouchEvent.TOUCH_TAP, this.touchEventHandler, this);
         let lab1 = this.createLable("闯关失败");
         this.addChild(lab1);
-        let btn1 = this.createButton("重新开始");
+        let btn1 = this.createButton("返回");
         btn1.addEventListener(egret.TouchEvent.TOUCH_TAP, ev => {
-            let parent = this.parent;
-            if (parent) {
-                let lipst = new ShootGame(1, 6);
-                lipst.x = 0;
-				lipst.y = 0;
-                parent.addChild(lipst);
-                parent.removeChild(this);
-            }
+            SceneManager.getInstance().setGameResult(0);
         }, this);
         this.addChild(btn1);
     }

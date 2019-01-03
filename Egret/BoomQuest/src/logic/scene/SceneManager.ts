@@ -25,6 +25,10 @@ class SceneManager {
         this.toTargetScene(new Welcome());
     }
 
+    public toMatchThreeScene() {
+        this.toTargetScene(new MatchThree());
+    }
+
     private toTargetScene(targetScene: eui.Component) {
 		if (targetScene.parent) {
 			return;

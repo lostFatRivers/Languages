@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="utf-8"?>
+<e:Skin class="MatchThreeSkin" width="640" height="1136" xmlns:e="http://ns.egret.com/eui" xmlns:w="http://ns.egret.com/wing" >
+	<w:Config id="167f4084bc5" ></w:Config>
+	<e:Group width="640" height="1136" x="0" y="0">
+		<e:Image source="shootBg_png" x="0" y="0" scaleX="1" scaleY="1"/>
+		<e:Group width="640" x="0" y="0" height="300">
+			<e:Image source="p02_png" x="498" y="100" width="92" height="144" scaleX="1" scaleY="1"/>
+			<e:Image source="p04_png" x="50" y="100" width="96" height="144" scaleX="1" scaleY="1"/>
+			<e:Label text="HP :" x="26" y="255.00000000000003" size="24" scaleX="1" scaleY="1"/>
+			<e:Image source="health_png" x="90.00000000000001" y="260" height="15" width="180" scaleX="1" scaleY="1"/>
+			<e:Label text="3487" x="139" y="260" size="14" fontFamily="Microsoft YaHei"/>
+			<e:Label text="HP :" x="370" y="255" size="24" scaleX="1" scaleY="1"/>
+			<e:Image source="health_png" x="432" y="260" height="15" width="180" scaleX="1" scaleY="1"/>
+			<e:Label text="3487" x="476" y="260" size="14" fontFamily="Microsoft YaHei"/>
+		</e:Group>
+		<e:Group id="gemBox" width="560" height="560" x="320" y="600" anchorOffsetX="280" anchorOffsetY="280">
+			<e:Rect width="600" height="600" x="-20" y="-20" fillColor="0xffffff" fillAlpha="1" ellipseWidth="50" ellipseHeight="50"/>
+		</e:Group>
+	</e:Group>
+</e:Skin>

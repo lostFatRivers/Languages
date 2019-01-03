@@ -10,15 +10,17 @@
 		"libs/modules/promise/promise.js"
 	],
 	"game": [
+		"bin-debug/logic/scene/SceneManager.js",
 		"bin-debug/AssetAdapter.js",
-		"bin-debug/LoadingUI.js",
 		"bin-debug/Main.js",
 		"bin-debug/Platform.js",
 		"bin-debug/ThemeAdapter.js",
 		"bin-debug/logic/common/MyTools.js",
-		"bin-debug/logic/scene/SceneManager.js",
+		"bin-debug/LoadingUI.js",
 		"bin-debug/ui/ElementCube.js",
+		"bin-debug/ui/ElementGem.js",
 		"bin-debug/ui/LipstickShoot.js",
+		"bin-debug/ui/MatchThree.js",
 		"bin-debug/ui/Welcome.js"
 	]
 }

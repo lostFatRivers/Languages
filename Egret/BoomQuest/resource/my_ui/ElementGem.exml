@@ -1,0 +1,5 @@
+<?xml version="1.0" encoding="utf-8"?>
+<e:Skin class="ElementGemSkin" width="70" height="70" xmlns:e="http://ns.egret.com/eui" xmlns:w="http://ns.egret.com/wing" >
+	<w:Config id="167f40b1ec8" ></w:Config>
+	<e:Image id="imgGem" source="gem1_png" x="0" y="0" width="70" height="70"/>
+</e:Skin>

@@ -12,3 +12,5 @@ node_modules/
 bin-debug/
 libs/
 .vscode/
+bin-debug/
+bin-release/
