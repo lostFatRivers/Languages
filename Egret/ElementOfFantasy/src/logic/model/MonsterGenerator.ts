@@ -1,0 +1,5 @@
+class MonsterGenerator {
+    
+    public constructor() {
+    }
+}

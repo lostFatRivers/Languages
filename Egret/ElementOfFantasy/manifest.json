@@ -1,0 +1,31 @@
+{
+	"initial": [
+		"libs/modules/egret/egret.js",
+		"libs/modules/egret/egret.web.js",
+		"libs/modules/eui/eui.js",
+		"libs/modules/assetsmanager/assetsmanager.js",
+		"libs/modules/tween/tween.js",
+		"libs/modules/socket/socket.js",
+		"libs/modules/game/game.js",
+		"libs/modules/promise/promise.js"
+	],
+	"game": [
+		"bin-debug/logic/model/HeroModel.js",
+		"bin-debug/AssetAdapter.js",
+		"bin-debug/Main.js",
+		"bin-debug/Platform.js",
+		"bin-debug/ThemeAdapter.js",
+		"bin-debug/logic/config/HeroLevelCfg.js",
+		"bin-debug/logic/const/Constants.js",
+		"bin-debug/logic/model/BuffModel.js",
+		"bin-debug/LoadingUI.js",
+		"bin-debug/logic/model/IntTuple.js",
+		"bin-debug/logic/model/MonsterGenerator.js",
+		"bin-debug/logic/model/MonsterModel.js",
+		"bin-debug/logic/model/Point.js",
+		"bin-debug/logic/scene/SceneManager.js",
+		"bin-debug/logic/schedule/ScheduleManager.js",
+		"bin-debug/logic/schedule/Tickable.js",
+		"bin-debug/ui/GameWelcome.js"
+	]
+}

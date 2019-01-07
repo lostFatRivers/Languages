@@ -1,0 +1,7 @@
+<?xml version="1.0" encoding="utf-8"?>
+<e:Skin class="GameWelcomeSkin" width="640" height="1136" xmlns:e="http://ns.egret.com/eui" xmlns:w="http://ns.egret.com/wing" >
+	<w:Config id="168144a061c" ></w:Config>
+	<e:Rect width="640" height="1136" x="0" y="0" fillColor="0x8efffc"/>
+	<e:Button id="btSubmit" label="Button" x="220" y="922" scaleX="2" scaleY="2"/>
+	<e:TextInput id="inptInterval" width="200" height="32" x="220" y="849" restrict="&quot;0-9&quot;"/>
+</e:Skin>
