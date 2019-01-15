@@ -20,6 +20,8 @@ class ShootGame extends eui.Component implements  eui.UIComponent {
 	private _startTime: number = 0;
 	private _lastTime: number;
 
+    private static sound: egret.Sound;
+
 	/** 常量 */
 	public static CONS = {
 		/** 圆桶直径 */
@@ -136,6 +138,9 @@ class ShootGame extends eui.Component implements  eui.UIComponent {
         this.knifeGroup.addChildAt(nk, 1);
         this._knife.visible = false;
 
+        let shootSound:egret.Sound = RES.getRes("shoot_mp3");
+        shootSound.play(0, 1);
+
         egret.Tween.get(nk).to({y: ShootGame.CONS.knifeTargetY}, ShootGame.CONS.knifeFlyTime, egret.Ease.cubicIn).call(() => {
             this._knife.visible = true;
             this.inFly = false;
@@ -165,6 +170,9 @@ class ShootGame extends eui.Component implements  eui.UIComponent {
                 nk.y = y;
                 nk.rotation = 0 - this.targetGroup.rotation;
                 this.targetGroup.addChildAt(nk, 0);
+
+                let insertSound:egret.Sound = RES.getRes("insert_mp3");
+                insertSound.play(0, 1);
 
                 if (kraSize == bullSize) {
                     this.passLevel();
@@ -207,7 +215,7 @@ class ShootGame extends eui.Component implements  eui.UIComponent {
 
     private checkLose(rota: number): boolean {
         let isLossed: boolean = false;
-        for (let i = -8; i <= 8; i++) {
+        for (let i = -10; i <= 10; i++) {
             let rangeRota = rota + i;
             if (rangeRota < 0) {
                 rangeRota += 360

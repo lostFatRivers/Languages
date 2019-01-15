@@ -9,6 +9,8 @@ class SceneManager {
 
     private wx: any;
 
+    private sound: egret.Sound;
+
     public constructor() {
     }
 
@@ -16,8 +18,17 @@ class SceneManager {
         if (!this.instance) {
             this.instance = new SceneManager();
             this.instance.wxConfig();
+            this.instance.bgSoundPlay();
         }
         return this.instance;
+    }
+
+    private bgSoundPlay() {
+        if (!this.sound) {
+            this.sound = RES.getRes("bgm_mp3");
+            let soundChannel: egret.SoundChannel = this.sound.play();
+            soundChannel.volume = 0.2;
+        }
     }
 
     private wxConfig() {
