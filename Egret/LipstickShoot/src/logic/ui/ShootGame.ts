@@ -200,6 +200,9 @@ class ShootGame extends eui.Component implements  eui.UIComponent {
         this.addChild(lab1);
         if (this.level == 3) {
             let btn1 = this.createButton("获得奖励");
+            SceneManager.getInstance().bgSoundChannel().stop();
+            let winSound: egret.Sound = RES.getRes("win_mp3");
+            winSound.play(0, 1);
             btn1.addEventListener(egret.TouchEvent.TOUCH_TAP, ev => {
                 SceneManager.getInstance().setGameResult(1);
             }, this);
@@ -233,6 +236,9 @@ class ShootGame extends eui.Component implements  eui.UIComponent {
 
     private newGameNotice() {
         this._runTimer.stop();
+        SceneManager.getInstance().bgSoundChannel().stop();
+        let loseSound: egret.Sound = RES.getRes("lose_mp3");
+        loseSound.play(0, 1);
         this.removeEventListener(egret.TouchEvent.TOUCH_TAP, this.touchEventHandler, this);
         let lab1 = this.createLable("闯关失败");
         this.addChild(lab1);

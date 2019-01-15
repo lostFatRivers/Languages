@@ -10,6 +10,7 @@ class SceneManager {
     private wx: any;
 
     private sound: egret.Sound;
+    private soundChannel: egret.SoundChannel;
 
     public constructor() {
     }
@@ -18,7 +19,6 @@ class SceneManager {
         if (!this.instance) {
             this.instance = new SceneManager();
             this.instance.wxConfig();
-            this.instance.bgSoundPlay();
         }
         return this.instance;
     }
@@ -26,8 +26,8 @@ class SceneManager {
     private bgSoundPlay() {
         if (!this.sound) {
             this.sound = RES.getRes("bgm_mp3");
-            let soundChannel: egret.SoundChannel = this.sound.play();
-            soundChannel.volume = 0.2;
+            this.soundChannel = this.sound.play();
+            this.soundChannel.volume = 0.2;
         }
     }
 
@@ -49,6 +49,7 @@ class SceneManager {
 
     public toGameScene(level: number, task: number) {
         this.toTargetScene(new ShootGame(level, task));
+        this.bgSoundPlay();
     }
 
     private toTargetScene(targetScene: eui.Component) {
@@ -70,5 +71,9 @@ class SceneManager {
             this.wx.miniProgram.redirectTo({url: "/pages/settlement/settlement?stat=loss"})
         }
 	}
+
+    public bgSoundChannel(): egret.SoundChannel {
+        return this.soundChannel;
+    }
 
 }
