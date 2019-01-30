@@ -23,8 +23,8 @@ class SceneManager {
         return this.instance;
     }
 
-    private bgSoundPlay() {
-        if (!this.sound) {
+    private bgSoundPlay(level: number) {
+        if (level === 1) {
             this.sound = RES.getRes("bgm_mp3");
             this.soundChannel = this.sound.play();
             this.soundChannel.volume = 0.2;
@@ -49,7 +49,7 @@ class SceneManager {
 
     public toGameScene(level: number, task: number) {
         this.toTargetScene(new ShootGame(level, task));
-        this.bgSoundPlay();
+        this.bgSoundPlay(level);
     }
 
     private toTargetScene(targetScene: eui.Component) {

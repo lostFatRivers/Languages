@@ -199,12 +199,14 @@ class ShootGame extends eui.Component implements  eui.UIComponent {
         let lab1 = this.createLable(`闯关成功`);
         this.addChild(lab1);
         if (this.level == 3) {
-            let btn1 = this.createButton("获得奖励");
+            let btn1 = this.createButton("重新开始");
             SceneManager.getInstance().bgSoundChannel().stop();
             let winSound: egret.Sound = RES.getRes("win_mp3");
-            winSound.play(0, 1);
+            let winChannel = winSound.play(0, 1);
             btn1.addEventListener(egret.TouchEvent.TOUCH_TAP, ev => {
-                SceneManager.getInstance().setGameResult(1);
+                //SceneManager.getInstance().setGameResult(1);
+                winChannel.stop();
+                SceneManager.getInstance().toGameScene(1, 7);
             }, this);
             this.addChild(btn1);
         } else {
@@ -238,13 +240,15 @@ class ShootGame extends eui.Component implements  eui.UIComponent {
         this._runTimer.stop();
         SceneManager.getInstance().bgSoundChannel().stop();
         let loseSound: egret.Sound = RES.getRes("lose_mp3");
-        loseSound.play(0, 1);
+        let loseChannel = loseSound.play(0, 1);
         this.removeEventListener(egret.TouchEvent.TOUCH_TAP, this.touchEventHandler, this);
         let lab1 = this.createLable("闯关失败");
         this.addChild(lab1);
-        let btn1 = this.createButton("返回");
+        let btn1 = this.createButton("重新开始");
         btn1.addEventListener(egret.TouchEvent.TOUCH_TAP, ev => {
-            SceneManager.getInstance().setGameResult(0);
+            //SceneManager.getInstance().setGameResult(0);
+            loseChannel.stop();
+            SceneManager.getInstance().toGameScene(1, 7);
         }, this);
         this.addChild(btn1);
     }
