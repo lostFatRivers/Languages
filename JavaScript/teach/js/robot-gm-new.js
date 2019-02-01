@@ -25,7 +25,7 @@ class Robot {
         this.profile = profile;
         this.chats = [];
         this.curChat = null;
-        this.refresh();
+        this.refreshTime = new Date().getTime() - 1000;
     }
 
     refresh() {
@@ -309,12 +309,14 @@ let vm = new Vue({
                     if (!robot.curChat) {
                         robot.curChat = chat;
                     }
+                    robot.refresh();
                 }
                 this.robotArray.push(robot);
             }
             if (!this.curRobot && this.robotArray.length > 0) {
                 this.curRobot = this.robotArray[0];
             }
+            this.sortRobotArray();
         },
         sortRobotArray() {
             this.robotArray = this.robotArray.sort((a, b) => b.refreshTime - a.refreshTime);

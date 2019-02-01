@@ -9,10 +9,10 @@
 <body>
     <div id="app">
         <div class="chessboard" v-show="inited">
-            <!-- <ludo-piece :color="'blue'"></ludo-piece> -->
             <div>
                 <ludo-cube v-for="(grid, key) in gridConfig" :index="key" :cube="grid" :key="key"> </ludo-cube>
             </div>
+            <ludo-piece :color="'blue'"></ludo-piece>
         </div>
 
         <div class="chesscontrol">

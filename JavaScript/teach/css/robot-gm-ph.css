@@ -68,6 +68,10 @@ html,body {
     height: 60px;
 }
 
+.chat-body {
+    overflow-x: hidden;
+}
+
 .chat-tail {
     color: rgb(230, 230, 230);
     background-color: rgb(59, 64, 71);
@@ -165,6 +169,7 @@ html,body {
     margin-top: 25px;
     font-size: 14px;
     float: left;
+    height: 30px;
     color: rgb(230, 230, 230);
 }
 
