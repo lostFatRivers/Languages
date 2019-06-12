@@ -1,0 +1,104 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+<body>
+    
+    <script>
+        // 在这里面写 java script 代码
+        function httpGet(url) {
+            return new Promise((resolve, reject) => {
+                httpGet0(url, resolve, reject, 0);
+            });
+        }
+
+        function httpGet0(url, resolve, reject, timeoutCount) {
+            let xhr = new XMLHttpRequest();
+            xhr.timeout = 10000;
+            xhr.open("GET", url);
+
+            xhr.ontimeout = function (event) {
+                timeoutCount++;
+                if (timeoutCount >= 5) {
+                    reject("http get request timeout");
+                } else {
+                    httpGet0(url, resolve, reject, timeoutCount);
+                }
+            };
+            xhr.onabort = function (event) {
+                reject("http get request failed");
+            };
+            xhr.onerror = function (event) {
+                reject("http get request error");
+            };
+            xhr.onload = function (event) {
+                if ((xhr.status >= 200 && xhr.status < 300) || xhr.status === 304) {
+                    resolve(xhr.responseText);
+                }
+            };
+            xhr.send();
+        }
+
+        async function testHttpGet() {
+            try {
+                let data = await httpGet("http://192.168.1.192:10900/lashou/image/check");
+                console.log(data);
+            } catch (error) {
+                console.log(error);
+            }
+        }
+
+        function httpPost(url, msg, contentType) {
+            return new Promise((resolve, reject) => {
+                let realContentType = contentType;
+                if (!contentType) {
+                    realContentType = "application/json";
+                }
+                httpPost0(url, msg, realContentType, resolve, reject, 0);
+            });
+        }
+
+        function httpPost0(url, msg, contentType, resolve, reject, timeoutCount) {
+            let xhr = new XMLHttpRequest();
+            xhr.timeout = 10000;
+            xhr.open("POST", url);
+            xhr.setRequestHeader("Content-Type", contentType);
+            xhr.ontimeout = function (event) {
+                timeoutCount++;
+                if (timeoutCount >= 5) {
+                    reject("http post request timeout");
+                } else {
+                    httpPost0(url, msg, contentType, resolve, reject, timeoutCount);
+                }
+            };
+            xhr.onabort = function (event) {
+                reject("http post request aborted");
+            };
+            xhr.onerror = function (event) {
+                reject("http post request error");
+            };
+            xhr.onload = function (event) {
+                if ((xhr.status >= 200 && xhr.status < 300) || xhr.status === 304) {
+                    resolve(xhr.responseText);
+                }
+            };
+            xhr.send(msg);
+        }
+
+        async function testHttpPost() {
+            try {
+                let data = await httpPost("http://192.168.1.192:10900/lashou/image/check", "{1123211}");
+                console.log(data);
+            } catch (error) {
+                console.log(error);
+            }
+        }
+
+        testHttpGet();
+    </script>
+</body>
+</html>

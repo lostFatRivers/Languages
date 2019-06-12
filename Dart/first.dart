@@ -1,31 +1,37 @@
-import 'dart:io';
+//import 'dart:io';
 
 main(List<String> args) {
-  MyHttpService.startup();
+  testDart();
 }
 
-class PlayerManager {
-  Future<String> call(String message) async {
-    return "Good";
-  }
-  void printAll() async {
-    var list = [];
-    for (var i = 0; i < 1000; i++) {
-      list.add(i);
-    }
-    await for (var i in Stream.fromIterable(list)) {
-      print(i);
-    }
-  }
+void testDart() {
+  constTest();
+  tellMe();
+  strTest();
 }
 
-class MyHttpService {
-  static void startup() async {
-    var server = await HttpServer.bind('127.0.0.1', 8070);
-    await for (var request in server) {
-      request.response
-        ..write('Hello world')
-        ..close();
-    }
+var sayHello = (name) => "hello $name";
+String sayHello2(name) {
+  return "hello $name";
+}
+
+void constTest() {
+  var callbacks = [];
+  for (var i = 0; i < 3; i++) {
+    callbacks.add(() => print("save $i"));
   }
+  callbacks.forEach((e) => e());
+}
+
+void tellMe({String who: "no body", String where, String what, String when}) {
+  print("$who tell me $what in $where at $when");
+}
+
+void strTest({a:"12", va:"sx"}) {
+  String sa = "6212260200147623074";
+  sa ..trim()
+     ..toLowerCase()
+     ..toUpperCase()
+     ..replaceFirst("411522199010250016", "B");
+  print(sa);
 }

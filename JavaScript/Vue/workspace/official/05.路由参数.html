@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<div id="app"></div>
+
+<script type="text/javascript" src="./node_modules/vue/dist/vue.js"></script>
+<script type="text/javascript" src="./node_modules/vue-router/dist/vue-router.js"></script>
+
+<script type="text/javascript">
+    Vue.use(VueRouter);
+
+    let UserParams = {
+        template: `<div>我是用户1</div>`,
+        create() {
+            console.log(this.$route.params.id);
+        }
+    };
+    let UserQuery = {
+        template: `<div>我是用户2</div>`
+    };
+
+    // 两种路由参数, 一种是 html#/user/1312   params动态路由
+    // 一种是 html#/user?userId=1312  query
+    let router = new VueRouter({
+        routes: [
+            { path: "/user/:id", name:"userP", component: UserParams },
+            { path: "/user", name:"userQ", component: UserQuery },
+        ]
+    });
+
+    let App = {
+        template: `
+                <div>
+                    <router-link :to="{name:'userP', params:{id:1}}">用户1</router-link>
+                    <router-link :to="{name:'userQ', query:{userId:2}}">用户2</router-link>
+                    <router-view></router-view>
+                </div>
+            `
+    };
+
+    new Vue({
+        el: "#app",
+        data() {
+            return {
+
+            }
+        },
+        components: {
+            App
+        },
+        router,
+        template: "<App/>"
+    })
+</script>
+</body>
+</html>

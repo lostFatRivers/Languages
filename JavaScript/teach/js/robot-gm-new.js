@@ -299,6 +299,9 @@ let vm = new Vue({
                 if (strLen(er.name) > 20) {
                     robot.simpleName = subStr(er.name, 20) + "...";
                 }
+                if (strLen(er.profile) > 8) {
+                    robot.profile = subStr(er.profile, 8) + "...";
+                }
                 for (let ec of er.chats) {
                     let chat = new RobotChat(ec.friendId, ec.friendName, ec.age, ec.sex);
                     for (let ecc of ec.chatContent) {

@@ -1,0 +1,17 @@
+{
+  "name": "aftOfficial",
+  "version": "1.0.0",
+  "description": "A Fun Team Official Website",
+  "main": "main.js",
+  "author": "Joker",
+  "license": "MIT",
+  "dependencies": {
+    "axios": "^0.18.0",
+    "vue": "^2.6.10",
+    "vue-router": "^3.0.6"
+  },
+  "devDependencies": {
+    "webpack": "^4.31.0",
+    "webpack-cli": "^3.3.2"
+  }
+}

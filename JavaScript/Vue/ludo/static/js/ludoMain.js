@@ -42,7 +42,7 @@ let vm = new Vue({
         gridConfig: {},
         indexMap:{},
         inited: false,
-        group: 1
+        group: 2
     },
     created() {
         axios.get('./static/data/config.json').then(res => {

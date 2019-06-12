@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Vue01</title>
+</head>
+<body>
+    <div id="app">
+        <h2>{{msg}}</h2>
+        <h1>{{msg.length}}</h1>
+        <h4>{{ hahahahaha }}</h4>
+    </div>
+
+    <script type="text/javascript" src="./node_modules/vue/dist/vue.js"></script>
+    <script type="text/javascript">
+        new Vue({
+            // 同时有 el 和 template 时, 优先加载 template, 如果 template 为空, 才会加载 el.
+            el: '#app',
+            data: function(){
+                return {
+                    msg:"数据属性",
+                    msg2:"<h2>sss</h2>"
+                }
+            },
+            template: `
+                <div class="app">
+                    <h2>{{msg}}</h2>
+                    <div v-html="msg2"></div>
+                </div>
+            `
+        });
+    </script>
+</body>
+</html>

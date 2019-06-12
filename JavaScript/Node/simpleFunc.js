@@ -1,12 +1,33 @@
-class Flock {
-    constructor() {
+var fs = require('fs');
 
-    }
-
-    conjoin() {
-        return this.x + this.y;
-    }
+let readFile = function(path) {
+    return new Promise((resolve, reject) => {
+        fs.readFile(path, (err, data) => {
+            if (err) {
+                reject(err);
+            } else {
+                resolve(data.toString('UTF-8'));
+            }
+        })
+    });
 }
 
-let flsx = new Flock();
-console.log(flsx.conjoin());
+let readFilePromise = readFile("E:/fag/script/test.txt");
+
+readFilePromise.then(value => console.log(value)).catch(err => console.log("Error. ", err));
+
+console.log("after promise call");
+
+let p1 = new Promise((resolve, reject) => {
+    setTimeout(resolve("World"), 1000);
+});
+
+
+let p2 = function() {
+    return new Promise((resolve, reject) => {
+
+        setTimeout(resolve(p1), 1000);
+    });
+}
+
+p2().then(value => console.log(value));
